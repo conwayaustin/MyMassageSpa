@@ -18,17 +18,27 @@
       line-height: 1.6;
     }
     header {
-      background-color: #fff;
-      padding: 1.5rem 2rem;
+      background-color: rgba(245, 235, 220, 0.8);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      padding: 0.5rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid #eee;
+      backdrop-filter: blur(5px);
     }
     .logo {
       font-family: 'Playfair Display', serif;
+      display: flex;
+      align-items: center;
       font-size: 1.8rem;
       color: #6d9f6a;
+    }
+    .logo-img {
+      height: 60px;
+      margin-right: 10px;
     }
     nav {
       display: flex;
@@ -42,20 +52,22 @@
     }
     .book-btn {
       margin-left: 1.5rem;
-      padding: 0.5rem 1rem;
-      background-color: #6d9f6a;
+      padding: 0.6rem 1.2rem;
+      background-color: #597e58;
       color: white;
       border: none;
-      border-radius: 4px;
+      border-radius: 20px;
       text-decoration: none;
       font-weight: 600;
-      transition: background 0.3s;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: background 0.3s, transform 0.2s;
     }
     .book-btn:hover {
-      background-color: #5b8757;
+      background-color: #597e58;
     }
     .hero {
-      background: url('Images/BFHC4027.PNG') no-repeat center center/cover;
+      background: url("../Images/Hero1.PNG") no-repeat center center/cover fixed;
+      background-size: left;
       height: 90vh;
       display: flex;
       justify-content: center;
@@ -70,17 +82,21 @@
       margin-bottom: 1rem;
     }
     .hero p {
+      text-align: right;
       font-size: 1.2rem;
+      align-items:right;
     }
     .section {
       padding: 4rem 2rem;
       max-width: 1100px;
+      background-color: rgba(255, 250, 247, 0.8);
+      backdrop-filter: blur(5px);
       margin: auto;
     }
     .section h2 {
       text-align: center;
       margin-bottom: 2rem;
-      color: #6d9f6a;
+      color: #597e58;
       font-family: 'Playfair Display', serif;
     }
     .services {
@@ -99,7 +115,7 @@
       text-align: center;
     }
     .service h3 {
-      color: #6d9f6a;
+      color: #597e58;
       margin-bottom: 1rem;
     }
     footer {
@@ -113,11 +129,14 @@
 </head>
 <body>
   <header>
-    <div class="logo">My Massage Spa</div>
+    <div class="logo">
+      <img src="../Images/logo_transparent.png" alt="My Massage Spa Logo" class="logo-img">
+      My Massage Spa</div>
     <nav>
-      <a href="#">Home</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
+      <a href="../HTML/my_massage_spa.html">Home</a>
+      <a href="../HTML/services.html">Services</a>
+      <a href="../HTML/contact.html">Contact</a>
+      <a href="../HTML/policy.html">Policy</a>
       <a href="#" class="book-btn">Book Now</a>
     </nav>
   </header>
@@ -134,7 +153,7 @@
     <div class="services">
       <div class="service">
         <h3>Massage Services</h3>
-        <p>We offer a range of massage therapies to suit your needs — from Swedish relaxation to deep tissue and more.</p>
+        <p>We offer a range of massage therapies to suit your needs — from relaxation to deep tissue and more.</p>
       </div>
       <div class="service">
         <h3>Beauty Treatments</h3>
@@ -145,13 +164,22 @@
 
   <section class="section" id="contact">
     <h2>Contact Us</h2>
+    <h2>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/"  target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" width="48" height="48">
+      </a>
+      <a href="https://www.instagram.com/" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" width="48" height="48">
+      </a>
+    </div>
+    </h2>
     <p style="text-align:center">
       2316 S Parsons Ave, Seffner, FL<br>
       Phone: 813-557-0091<br>
       Email: <a href="mailto:mymassagespa66@gmail.com">mymassagespa66@gmail.com</a>
     </p>
   </section>
-
   <footer>
     &copy; 2025 My Massage Spa. All rights reserved.
   </footer>

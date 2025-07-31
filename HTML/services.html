@@ -6,7 +6,191 @@
         <title>My Massage Spa - Services</title>
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
   <style>
-    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #fffaf7;
+      color: #4a4a4a;
+      line-height: 1.6;
+    }
+    header {
+      background-color: rgba(245, 235, 220, 0.8);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      padding: 0.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #eee;
+      backdrop-filter: blur(5px);
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      display: flex;
+      align-items: center;
+      font-size: 1.8rem;
+      color: #6d9f6a;
+    }
+    .logo-img {
+      height: 60px;
+      margin-right: 10px;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+    }
+    nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: #4a4a4a;
+      font-weight: 600;
+    }
+    .book-btn {
+      margin-left: 1.5rem;
+      padding: 0.6rem 1.2rem;
+      background-color: #597e58;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: background 0.3s, transform 0.2s;
+    }
+    .book-btn:hover {
+      background-color: #597e58;
+    }
+    .hero {
+      background: url("../Images/IMG_E9180.JPG") no-repeat center center/cover fixed;
+      background-size: center;
+      height: 90vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      text-shadow: 0 0 10px rgba(0,0,0,0.6);
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      color: #4a4a4a;
+      font-size: 1.2rem;
+    }
+    .section {
+     background-attachment: fixed;
+      padding: 4rem 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .section h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #597e58;
+      font-family: 'Playfair Display', serif;
+    }
+    .services {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .service {
+      background: rgba(245, 235, 220, 0.8);
+      border: 1px solid #eee;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+      padding: 1.5rem;
+      width: 300px;
+      backdrop-filter: blur(0.5rem);
+      text-align: center;
+    }
+    .service h3 {
+      color: #597e58;
+      margin-bottom: 1rem;
+    }
+    .service p {
+      margin-bottom: 1rem;
+    }
+    .pricing {
+      list-style: none;
+      padding: 0;
+    }
+    .pricing li {
+      margin: 0.25rem 0;
+    }
+    footer {
+      background: #f8f5f1;
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #777;
+    }
   </style>
-    </head>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="../Images/logo_transparent.png" alt="My Massage Spa Logo" class="logo-img">
+      My Massage Spa</div>
+    <nav>
+      <a href="../HTML/my_massage_spa.html">Home</a>
+      <a href="../HTML/services.html">Services</a>
+      <a href="../HTML/contact.html">Contact</a>
+      <a href="../HTML/policy.html">Policy</a>
+      <a href="#" class="book-btn">Book Now</a>
+    </nav>
+  </header>
+  <section class="hero">
+      <section class="section" id="services">
+    <h2>Our Services</h2>
+    <div class="services">
+      <div class="service">
+        <h3>Relaxing Massage</h3>
+        <p>Indulge in pure tranquility with our Classic Massage collection. Our Relaxing Massage uses soothing, gentle techniques to calm the body and mind, promoting deep relaxation and overall well-being.</p>
+        <ul class="pricing">
+          <li>30 min - $50</li>
+          <li>60 min - $80</li>
+          <li>90 min - $110</li>
+        </ul>
+      </div>
+      <div class="service">
+        <h3>Deep Tissue Massage</h3>
+        <p>Focused pressure targets deep muscle layers to relieve chronic tension, improve mobility, and restore balance to the body.</p>
+        <ul class="pricing">
+          <li>30 min - $60</li>
+          <li>60 min - $90</li>
+          <li>90 min - $120</li>
+        </ul>
+      </div>
+      <div class="service">
+        <h3>Relaxing Facial</h3>
+        <p>A gentle, rejuvenating facial designed to nourish the skin, ease tension, and leave you with a radiant, refreshed glow.</p>
+        <ul class="pricing">
+          <li>30 min - $45</li>
+          <li>60 min - $75</li>
+          <li>90 min - $100</li>
+        </ul>
+      </div>
+      <div class="service">
+        <h3>Deep Cleanse Facial</h3>
+        <p>A purifying facial treatment that deeply cleans pores, removes impurities, and revitalizes the skin for a clear, refreshed complexion.</p>
+        <ul class="pricing">
+          <li>30 min - $55</li>
+          <li>60 min - $85</li>
+          <li>90 min - $115</li>
+        </ul>
+      </div>
+    </div>
+    </section>
+    </section>
+</body>
 </html>
