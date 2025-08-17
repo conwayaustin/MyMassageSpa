@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Policy - My Massage Spa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans&display=swap" rel="stylesheet"/>
+  <style>
+    /* Reset & base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #fffaf7;
+      color: #4a4a4a;
+      line-height: 1.6;
+      padding: 0;
+    }
+
+    /* Header */
+    header {
+    background-color: rgba(245, 235, 220, 0.8);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      padding: 0.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #eee;
+      backdrop-filter: blur(5px);
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      display: flex;
+      align-items: center;
+      font-size: 1.8rem;
+      color: #597e58;
+    }
+    .logo-img { height: 60px; margin-right: 10px; }
+    nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: #4a4a4a;
+    }
+    .book-btn {
+      margin-left: 1.5rem;
+      padding: 0.6rem 1.2rem;
+      background-color: #597e58;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      transition: background 0.3s, transform 0.2s;
+    }
+    .book-btn:hover { background-color: #476d47; transform: scale(1.03); }
+
+    /* Hero */
+    .hero {
+      background: url("../Images/Hero.jpeg") no-repeat center center/cover fixed;
+      min-height: 110vh;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 3rem 2rem 5rem;
+      color: #fff;
+      text-shadow: 0 0 10px rgba(0,0,0,0.7);
+    }
+
+    /* Removed overlay */
+
+    /* Content container */
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      background: rgba(245, 235, 220, 0.85);
+      color: #4a4a4a;
+      border-radius: 12px;
+      padding: 30px 40px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      overflow-y: auto;
+      max-height: 85vh;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #597e58;
+      margin-bottom: 1rem;
+      font-family: 'Playfair Display', serif;
+    }
+
+    h3 {
+      color: #456039;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p, ul {
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      list-style-type: disc;
+      margin-left: 1.5rem;
+      color: #555;
+    }
+
+    /* Scrollbar for overflow if needed */
+    .hero-content::-webkit-scrollbar {
+      width: 8px;
+    }
+    .hero-content::-webkit-scrollbar-thumb {
+      background-color: #597e58;
+      border-radius: 10px;
+    }
+    .hero-content::-webkit-scrollbar-track {
+      background: #f0f0f0;
+    }
+
+    @media (max-width: 600px) {
+      .hero-content {
+        padding: 20px;
+        max-width: 100%;
+        max-height: 90vh;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="../Images/logo_transparent.png" alt="My Massage Spa Logo" class="logo-img" />
+      My Massage Spa
+    </div>
+    <nav>
+      <a href="../HTML/Home.html">Home</a>
+      <a href="../HTML/services.html">Services</a>
+      <a href="../HTML/contact.html">Contact</a>
+      <a href="../HTML/policy.html">Policy</a>
+      <a href="#" class="book-btn">Book Now</a>
+    </nav>
+  </header>
+
+  <section class="hero" role="main" aria-labelledby="policy-title">
+    <div class="hero-content">
+      <h1 id="policy-title">Spa Policies</h1>
+      <p>Welcome to <strong>My Massage Spa</strong>. Our goal is to provide you with exceptional service in a relaxing environment. To help us serve you better, please review the following policies carefully.</p>
+
+      <h3>Prices</h3>
+      <p>Prices are subject to change without prior notice.</p>
+
+      <h3>Gift Cards</h3>
+      <ul>
+        <li>All gift cards and certificates are non-refundable and cannot be redeemed for cash.</li>
+        <li>Paper gift certificates expire one year from the date of purchase.</li>
+        <li>Lost or stolen gift cards and certificates cannot be replaced.</li>
+      </ul>
+
+      <h3>First-Time Visitors & Intake Forms</h3>
+      <ul>
+        <li>All first-time guests are required to complete an intake form before their initial appointment.</li>
+      </ul>
+
+      <h3>Spa Environment</h3>
+      <ul>
+        <li>Please maintain a quiet and peaceful atmosphere while in the spa.</li>
+        <li>Kindly silence or turn off all cell phones to respect other guests.</li>
+      </ul>
+
+      <h3>Cancellations</h3>
+      <ul>
+        <li>We kindly ask for at least 24 hours’ notice for cancellations.</li>
+        <li>Appointments cancelled with less than 24 hours’ notice will be charged the full service price to the credit card on file.</li>
+      </ul>
+
+      <h3>Consent and Acknowledgment</h3>
+      <p>
+        I understand that the services provided by <strong>My Massage Spa</strong> are designed for relaxation and personal well-being and are not a substitute for medical examination, diagnosis, or treatment. I acknowledge that the spa’s therapists are not medical professionals and do not diagnose or prescribe treatment.
+      </p>
+      <p>
+        I agree to inform my therapist of any existing medical conditions, allergies, injuries, or other sensitivities that may affect my treatment or be affected by the services provided.
+      </p>
+      <p>
+        I understand that draping will be used at all times to ensure my privacy and comfort, and only the area being worked on will be uncovered.
+      </p>
+      <p>
+        I acknowledge that inappropriate behavior, remarks, or advances of a sexual nature are strictly prohibited and will result in immediate termination of the session. In such cases, I will be responsible for full payment of the scheduled service.
+      </p>
+      <p>
+        I understand that if the therapist feels uncomfortable or unsafe at any point during the session, they have the right to end the service immediately without refund.
+      </p>
+      <p>
+        I accept full responsibility for my own health and well-being during and after the spa services. I release <strong>My Massage Spa</strong> and its employees from any liability or claims relating to the services provided.
+      </p>
+    </div>
+  </section>
+</body>
+</html>
+ 

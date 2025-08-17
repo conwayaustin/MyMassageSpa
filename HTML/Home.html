@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Massage Spa | Relaxation Redefined</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    /* Reset & base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
+      font-family: 'Open Sans', sans-serif;
+      background-color: #fffaf7;
+      color: #4a4a4a;
+      line-height: 1.6;
+    }
+
+    /* Header */
+    header {
+    background-color: rgba(245, 235, 220, 0.8);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      padding: 0.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #eee;
+      backdrop-filter: blur(5px);
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      display: flex;
+      align-items: center;
+      font-size: 1.8rem;
+      color: #597e58;
+    }
+    .logo-img { height: 60px; margin-right: 10px; }
+    nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: #4a4a4a;
+    }
+    .book-btn {
+      margin-left: 1.5rem;
+      padding: 0.6rem 1.2rem;
+      background-color: #597e58;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      transition: background 0.3s, transform 0.2s;
+    }
+    .book-btn:hover { background-color: #476d47; transform: scale(1.03); }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 100vh;
+      width: 100%;
+      background: url("../Images/Hero.png") no-repeat center center/cover fixed;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+    }
+    .hero-content {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      padding: 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      overflow-y: auto;
+    }
+    .hero-caption {
+        font-family: 'Playfair Display', serif;
+        font-style: italic;
+        font-size: 1.3rem;
+        background: rgba(245, 235, 220, 0.85);
+        color: #597e58;
+        padding: 1rem 2rem;
+        border-radius: 12px;
+        margin-bottom: 20px;
+        display: inline-block;
+        position: relative;
+        z-index: 10; /* ensure it is on top */
+        top: 20px;   /* small push down from top */
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      font-weight: 700;
+      text-shadow: 0 0 12px rgba(0,0,0,0.8);
+      margin-bottom: 40px;
+    }
+
+    /* Sections inside hero */
+    section {
+      padding: 40px 0;
+      width: 100%;
+      color: white;
+    }
+    h2 {
+      text-align: center;
+      color: #fff;
+      margin-bottom: 40px;
+      font-family: 'Playfair Display', serif;
+    }
+    .services-container {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .service-card {
+      background: rgba(245, 235, 220, 0.85);
+      border-radius: 12px;
+      padding: 2rem;
+      max-width: 300px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      color: #4a4a4a;
+    }
+    .service-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+    .service-card h3 { font-family: 'Playfair Display', serif; margin-bottom: 1rem; color: #597e58; }
+
+    .contact-info {
+      background: rgba(245, 235, 220, 0.85);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      color: #4a4a4a;
+    }
+    .contact-info p { margin-bottom: 10px; }
+    .social-icons img { margin: 0 10px; width: 40px; height: 40px; }
+    #hours {
+        margin-bottom: 40px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #597e58;
+      color: white;
+    }
+
+    /* Promo Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center; align-items: center;
+    }
+    .modal-content {
+      position: relative;
+      background: #fffaf7;
+      border-radius: 15px;
+      padding: 2rem;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      animation: fadeIn 0.4s ease;
+    }
+    .modal-content h2 { font-family: 'Playfair Display', serif; color: #597e58; margin-bottom: 1rem; }
+    .modal-content p { margin-bottom: 1.5rem; font-size: 1rem; color: #4a4a4a; }
+    .modal-close {
+      background: #597e58; color: white; border: none;
+      padding: 0.5rem 1rem; border-radius: 10px; cursor: pointer;
+      font-weight: 600;
+    }
+    @keyframes fadeIn { from { opacity:0; transform: translateY(-20px); } to { opacity:1; transform: translateY(0); } }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="../Images/logo_transparent.png" alt="My Massage Spa Logo" class="logo-img">
+      My Massage Spa
+    </div>
+    <nav>
+      <a href="../HTML/Home.html">Home</a>
+      <a href="../HTML/services.html">Services</a>
+      <a href="../HTML/contact.html">Contact</a>
+      <a href="../HTML/policy.html">Policy</a>
+      <a href="#" class="book-btn">Book Now</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-caption">Your oasis for wellness and beauty treatments</p>
+      <h1>Relaxation Redefined</h1>
+
+      <!-- Services -->
+      <section id="services">
+        <h2>Our Services</h2>
+        <div class="services-container">
+          <div class="service-card">
+            <h3>Massage Services</h3>
+            <p>We offer a range of massage therapies to suit your needs — from relaxation to deep tissue and more.</p>
+          </div>
+          <div class="service-card">
+            <h3>Beauty Services</h3>
+            <p>Our beauty services include facials, skin treatments, and rejuvenating care tailored to your skin type and goals.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="hours">
+        <h2>Hours of Operation</h2>
+        <div class="contact-info">
+          <p>Monday - Saturday: 9:00 AM - 9:00 PM</p>
+          <p>Sunday: 9:00 AM - 6:00 PM</p>
+        </div>
+      </section>
+      
+
+      <!-- Contact -->
+      <section id="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-info">
+          <p>📍 2316 S Parsons Ave, Seffner, FL</p>
+          <p>📞 813-557-0091</p>
+          <p>✉️ <a href="mailto:info@mymassagespas.com">info@mymassagespas.com</a></p>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/share/176WSFdXgW/?mibextid=wwXIfr" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
+            <a href="https://www.instagram.com/mymassagespas?igsh=MTJzam9wdTd0NjczOQ%3D%3D&utm_source=qr" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram"></a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>

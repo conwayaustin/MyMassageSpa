@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Services & Pricing</title>
-  <link rel="stylesheet" href="../CSS/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans&display=swap" rel="stylesheet"/>
   <style>
     /* Reset & base */
     * {
@@ -25,7 +25,7 @@
 
     /* Header */
     header {
-      background-color: rgba(245, 235, 220, 0.8);
+    background-color: rgba(245, 235, 220, 0.8);
       position: sticky;
       top: 0;
       z-index: 999;
@@ -36,32 +36,19 @@
       border-bottom: 1px solid #eee;
       backdrop-filter: blur(5px);
     }
-
     .logo {
       font-family: 'Playfair Display', serif;
       display: flex;
       align-items: center;
       font-size: 1.8rem;
-      color: #6d9f6a;
+      color: #597e58;
     }
-
-    .logo-img {
-      height: 60px;
-      margin-right: 10px;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-    }
-
+    .logo-img { height: 60px; margin-right: 10px; }
     nav a {
       margin-left: 1.5rem;
       text-decoration: none;
       color: #4a4a4a;
-      font-weight: 600;
     }
-
     .book-btn {
       margin-left: 1.5rem;
       padding: 0.6rem 1.2rem;
@@ -74,11 +61,7 @@
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
       transition: background 0.3s, transform 0.2s;
     }
-
-    .book-btn:hover {
-      background-color: #476d47;
-      transform: scale(1.03);
-    }
+    .book-btn:hover { background-color: #476d47; transform: scale(1.03); }
 
     /* Hero container with background */
     .hero {
@@ -109,7 +92,7 @@
 
     h2 {
       text-align: center;
-      color: #b0c9a8;
+      color: #597e58;
       margin-bottom: 20px;
       text-shadow: 0 0 6px rgba(0,0,0,0.6);
     }
@@ -126,6 +109,7 @@
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       padding-bottom: 10px;
+      justify-content: center;
     }
     .slider::-webkit-scrollbar {
       height: 8px;
@@ -141,7 +125,7 @@
     /* Card styles */
     .card {
       flex: 0 0 280px;
-      background: rgba(255 255 255 / 0.9);
+      background: rgba(245, 235, 220, 0.85);
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
       padding: 20px;
@@ -151,6 +135,7 @@
       align-items: center;
       gap: 15px;
       color: #333;
+      justify-content: center;
     }
 
     .toggle-buttons {
@@ -226,7 +211,7 @@
       My Massage Spa
     </div>
     <nav>
-      <a href="../HTML/my_massage_spa.html">Home</a>
+      <a href="../HTML/Home.html">Home</a>
       <a href="../HTML/services.html">Services</a>
       <a href="../HTML/contact.html">Contact</a>
       <a href="../HTML/policy.html">Policy</a>
@@ -236,7 +221,6 @@
 
   <section class="hero" aria-label="Hero background image with services content">
     <div class="content-wrapper">
-      <h1>Services</h1>
 
       <!-- Massage Services -->
       <section class="slider-section" aria-label="Massage Services">
@@ -252,20 +236,7 @@
             <div class="card-content">
               <h3>Relaxing Massage</h3>
               <p class="description">Gentle and relaxing massage to melt away tension.</p>
-              <p class="price" data-30="$55" data-60="$75" data-90="$115" data-120="$150">$55</p>
-            </div>
-          </div>
-          <div class="card">
-            <div class="toggle-buttons" role="group" aria-label="Select session length">
-              <button class="toggle-btn active" data-length="30" aria-pressed="true" onclick="selectSessionLength(this)">30</button>
-              <button class="toggle-btn" data-length="60" aria-pressed="false" onclick="selectSessionLength(this)">60</button>
-              <button class="toggle-btn" data-length="90" aria-pressed="false" onclick="selectSessionLength(this)">90</button>
-              <button class="toggle-btn" data-length="120" aria-pressed="false" onclick="selectSessionLength(this)">120</button>
-            </div>
-            <div class="card-content">
-              <h3>Couples Relaxing Massage</h3>
-              <p class="description">Gentle and relaxing massage to melt away tension with your special somebody.</p>
-              <p class="price" data-30="$110" data-60="$150" data-90="$230" data-120="$300">$105</p>
+              <p class="price" data-30="$55" data-60="Non-Member $75  Member $65" data-90="Non-Member $115  Member $105" data-120="Non-Member $150  Member $140">$55</p>
             </div>
           </div>
           <div class="card">
@@ -278,7 +249,39 @@
             <div class="card-content">
               <h3>Deep Tissue Massage</h3>
               <p class="description">Targeted deep pressure to relieve muscle pain for a more theraputic experience.</p>
-              <p class="price" data-30="$70" data-60="$80" data-90="$120" data-120="$160">$70</p>
+              <p class="price" data-30="$60" data-60="Non-Member $80  Member $70" data-90="Non-Member $120  Member $110" data-120="Non-Member $160  Member $150">$60</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="toggle-buttons" role="group" aria-label="Select session length">
+              <button class="toggle-btn active" data-length="30" aria-pressed="true" onclick="selectSessionLength(this)">30</button>
+              <button class="toggle-btn" data-length="60" aria-pressed="false" onclick="selectSessionLength(this)">60</button>
+              <button class="toggle-btn" data-length="90" aria-pressed="false" onclick="selectSessionLength(this)">90</button>
+              <button class="toggle-btn" data-length="120" aria-pressed="false" onclick="selectSessionLength(this)">120</button>
+            </div>
+            <div class="card-content">
+              <h3>Stifness Massage</h3>
+              <p class="description">Designed to ease joint discomfort and relieve muscle tension, improve mobility, reduce pain, and restore comfort to your body</p>
+              <p class="price" data-30="$70" data-60="Non-Member $85  Member $75" data-90="Non-Member $125  Member $115" data-120="Non-Member $170  Member $160">$70</p>
+            </div>
+          </div>
+      </section>
+
+      <!-- Couples Services -->
+      <section class="slider-section" aria-label="Massage Services">
+        <h2>Couples Services</h2>
+        <div class="slider" aria-label="Massage services slider">
+          <div class="card">
+            <div class="toggle-buttons" role="group" aria-label="Select session length">
+              <button class="toggle-btn active" data-length="30" aria-pressed="true" onclick="selectSessionLength(this)">30</button>
+              <button class="toggle-btn" data-length="60" aria-pressed="false" onclick="selectSessionLength(this)">60</button>
+              <button class="toggle-btn" data-length="90" aria-pressed="false" onclick="selectSessionLength(this)">90</button>
+              <button class="toggle-btn" data-length="120" aria-pressed="false" onclick="selectSessionLength(this)">120</button>
+            </div>
+            <div class="card-content">
+              <h3>Couples Relaxing Massage</h3>
+              <p class="description">Gentle and relaxing massage to melt away tension with your special somebody.</p>
+              <p class="price" data-30="$110" data-60="Non-Member $150  Member $130" data-90="Non-Member $230  Member $210" data-120="Non-Member $300  Member $280">$110</p>
             </div>
           </div>
           <div class="card">
@@ -290,8 +293,8 @@
             </div>
             <div class="card-content">
               <h3>Couples Deep Tissue Massage</h3>
-              <p class="description">Targeted deep pressure to relieve muscle pain for a more theraputic experience.</p>
-              <p class="price" data-30="$70" data-60="$80" data-90="$120" data-120="$160">$70</p>
+              <p class="description">Targeted deep pressure to relieve muscle pain for a more theraputic experience with your special somebody.</p>
+              <p class="price" data-30="$120" data-60="Non-Member $160  Member $140" data-90="Non-Member $240  Member $220" data-120="Non-Member $320  Member $300">$120</p>
             </div>
           </div>
           <div class="card">
@@ -302,105 +305,14 @@
               <button class="toggle-btn" data-length="120" aria-pressed="false" onclick="selectSessionLength(this)">120</button>
             </div>
             <div class="card-content">
-              <h3>Muscle & Joint Massage</h3>
-              <p class="description">Gentle and relaxing massage to melt away tension.</p>
-              <p class="price" data-30="$70" data-60="$90" data-90="$130" data-120="$180">$70</p>
-            </div>
-          </div>
-          <div class="card">
-            <div class="toggle-buttons" role="group" aria-label="Select session length">
-              <button class="toggle-btn active" data-length="30" aria-pressed="true" onclick="selectSessionLength(this)">30</button>
-              <button class="toggle-btn" data-length="60" aria-pressed="false" onclick="selectSessionLength(this)">60</button>
-              <button class="toggle-btn" data-length="90" aria-pressed="false" onclick="selectSessionLength(this)">90</button>
-              <button class="toggle-btn" data-length="120" aria-pressed="false" onclick="selectSessionLength(this)">120</button>
-            </div>
-            <div class="card-content">
-              <h3>Couples Muscle & Joint Massage</h3>
-              <p class="description">Gentle and relaxing massage to melt away tension.</p>
-              <p class="price" data-30="$70" data-60="$90" data-90="$130" data-120="$180">$70</p>
+              <h3>Couples Stifness Massage</h3>
+              <p class="description">Designed to ease joint discomfort and relieve muscle tension, improve mobility, reduce pain, and restore comfort to your body with your special somebody.</p>
+              <p class="price" data-30="$140" data-60="Non-Member $170  Member $150" data-90="Non-Member $250  Member $230" data-120="Non-Member $340  Member $320">$140</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Add Ons -->
-      <section class="slider-section" aria-label="Massage Services">
-        <h2>Massage Services</h2>
-        <div class="slider" aria-label="Massage services slider">
-          <div class="card">
-            <div class="card-content">
-              <h3>Relaxing Massage</h3>
-              <p class="description">Gentle and relaxing massage to melt away tension.</p>
-              <p class="price" data-30="$55" data-60="$75" data-90="$115" data-120="$150">$55</p>
-            </div>
-          </div>
-          <div class="card">
-            <div class="toggle-buttons" role="group" aria-label="Select session length">
-              <button class="toggle-btn active" data-length="30" aria-pressed="true" onclick="selectSessionLength(this)">30</button>
-              <button class="toggle-btn" data-length="60" aria-pressed="false" onclick="selectSessionLength(this)">60</button>
-              <button class="toggle-btn" data-length="90" aria-pressed="false" onclick="selectSessionLength(this)">90</button>
-              <button class="toggle-btn" data-length="120" aria-pressed="false" onclick="selectSessionLength(this)">120</button>
-            </div>
-            <div class="card-content">
-              <h3>Couples Relaxing Massage</h3>
-              <p class="description">Gentle and relaxing massage to melt away tension with your special somebody.</p>
-              <p class="price" data-30="$110" data-60="$150" data-90="$230" data-120="$300">$105</p>
-            </div>
-          </div>
-          <div class="card">
-            <div class="toggle-buttons" role="group" aria-label="Select session length">
-              <button class="toggle-btn active" data-length="30" aria-pressed="false" onclick="selectSessionLength(this)">30</button>
-              <button class="toggle-btn" data-length="60" aria-pressed="true" onclick="selectSessionLength(this)">60</button>
-              <button class="toggle-btn" data-length="90" aria-pressed="false" onclick="selectSessionLength(this)">90</button>
-              <button class="toggle-btn" data-length="120" aria-pressed="false" onclick="selectSessionLength(this)">120</button>
-            </div>
-            <div class="card-content">
-              <h3>Deep Tissue Massage</h3>
-              <p class="description">Targeted deep pressure to relieve muscle pain for a more theraputic experience.</p>
-              <p class="price" data-30="$70" data-60="$80" data-90="$120" data-120="$160">$70</p>
-            </div>
-          </div>
-          <div class="card">
-            <div class="toggle-buttons" role="group" aria-label="Select session length">
-              <button class="toggle-btn active" data-length="30" aria-pressed="false" onclick="selectSessionLength(this)">30</button>
-              <button class="toggle-btn" data-length="60" aria-pressed="true" onclick="selectSessionLength(this)">60</button>
-              <button class="toggle-btn" data-length="90" aria-pressed="false" onclick="selectSessionLength(this)">90</button>
-              <button class="toggle-btn" data-length="120" aria-pressed="false" onclick="selectSessionLength(this)">120</button>
-            </div>
-            <div class="card-content">
-              <h3>Couples Deep Tissue Massage</h3>
-              <p class="description">Targeted deep pressure to relieve muscle pain for a more theraputic experience.</p>
-              <p class="price" data-30="$70" data-60="$80" data-90="$120" data-120="$160">$70</p>
-            </div>
-          </div>
-          <div class="card">
-            <div class="toggle-buttons" role="group" aria-label="Select session length">
-              <button class="toggle-btn active" data-length="30" aria-pressed="true" onclick="selectSessionLength(this)">30</button>
-              <button class="toggle-btn" data-length="60" aria-pressed="false" onclick="selectSessionLength(this)">60</button>
-              <button class="toggle-btn" data-length="90" aria-pressed="false" onclick="selectSessionLength(this)">90</button>
-              <button class="toggle-btn" data-length="120" aria-pressed="false" onclick="selectSessionLength(this)">120</button>
-            </div>
-            <div class="card-content">
-              <h3>Muscle & Joint Massage</h3>
-              <p class="description">Gentle and relaxing massage to melt away tension.</p>
-              <p class="price" data-30="$70" data-60="$90" data-90="$130" data-120="$180">$70</p>
-            </div>
-          </div>
-          <div class="card">
-            <div class="toggle-buttons" role="group" aria-label="Select session length">
-              <button class="toggle-btn active" data-length="30" aria-pressed="true" onclick="selectSessionLength(this)">30</button>
-              <button class="toggle-btn" data-length="60" aria-pressed="false" onclick="selectSessionLength(this)">60</button>
-              <button class="toggle-btn" data-length="90" aria-pressed="false" onclick="selectSessionLength(this)">90</button>
-              <button class="toggle-btn" data-length="120" aria-pressed="false" onclick="selectSessionLength(this)">120</button>
-            </div>
-            <div class="card-content">
-              <h3>Couples Muscle & Joint Massage</h3>
-              <p class="description">Gentle and relaxing massage to melt away tension.</p>
-              <p class="price" data-30="$70" data-60="$90" data-90="$130" data-120="$180">$70</p>
-            </div>
-          </div>
-        </div>
-      </section>
 
 
       <!-- Facial Services -->
@@ -409,27 +321,102 @@
         <div class="slider" aria-label="Facial services slider">
           <div class="card">
             <div class="toggle-buttons" role="group" aria-label="Select session length">
-              <button class="toggle-btn active" data-length="60" aria-pressed="true" onclick="selectSessionLength(this)">60</button>
-              <button class="toggle-btn" data-length="90" aria-pressed="false" onclick="selectSessionLength(this)">90</button>
+              <button class="toggle-btn active" data-length="30" aria-pressed="true" onclick="selectSessionLength(this)">30</button>
             </div>
             <div class="card-content">
-              <h3>Hydrating Facial</h3>
-              <p class="description">Nourishes and revitalizes dry, tired skin.</p>
-              <p class="price" data-60="Non-Member: $85 | Member: $65" data-90="Non-Member: $115 | Member: $95">Non-Member: $85 | Member: $65</p>
+              <h3>Relaxing Facial</h3>
+              <p class="description">Our revitalizing facial gently cleanses, exfoliates, and hydrates the skin, leaving your complexion refreshed, radiant, and perfectly balanced.</p>
+              <p class="price" data-30="$55">$55</p>
             </div>
           </div>
           <div class="card">
             <div class="toggle-buttons" role="group" aria-label="Select session length">
               <button class="toggle-btn active" data-length="60" aria-pressed="true" onclick="selectSessionLength(this)">60</button>
               <button class="toggle-btn" data-length="90" aria-pressed="false" onclick="selectSessionLength(this)">90</button>
+              <button class="toggle-btn" data-length="120" aria-pressed="false" onclick="selectSessionLength(this)">120</button>
             </div>
             <div class="card-content">
-              <h3>Anti-Aging Facial</h3>
-              <p class="description">Smooths and firms for a youthful glow.</p>
-              <p class="price" data-60="Non-Member: $90 | Member: $70" data-90="Non-Member: $120 | Member: $100">Non-Member: $90 | Member: $70</p>
+              <h3>Relaxing Facial & Massage</h3>
+              <p class="description">Our revitalizing facial gently cleanses, exfoliates, and hydrates the skin, leaving your complexion refreshed, radiant, and perfectly balanced.</p>
+              <p class="price" data-60="Non-Member: $110 | Member: $100" data-90="Non-Member: $130 | Member: $120" data-120="Non-Member $170  Member $160">Non-Member: $110 | Member: $65</p>
             </div>
           </div>
-        </div>
+      </section>
+
+      <!-- Enhancements -->
+      <section class="slider-section" aria-label="Enhancements">
+        <h2>Enhancements</h2>
+        <div class="slider" aria-label="Facial services slider">
+          <div class="card">
+            <div class="card-content">
+              <h3>Active oil</h3>
+              <p class="description">Enhance your massage with our cooling oil, designed to soothe sore muscles, reduce tension, and leave you feeling refreshed and revitalized.</p>
+              <p class="price">$5</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-content">
+              <h3>Aromatherapy</h3>
+              <p class="description">Enhance your massage with soothing aromatherapy, using calming essential oils to relax the mind, uplift the spirit, and deepen your sense of well-being.</p>
+              <p class="price">$10</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-content">
+              <h3>Hot Stone</h3>
+              <p class="description">Enhance your massage with the therapeutic warmth of hot stones, melting away tension and promoting deep muscle relaxation for a truly indulgent experience.</p>
+              <p class="price">$10</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-content">
+              <h3>Cervical Massage</h3>
+              <p class="description">Enhance your wellness with a targeted cervical massage, focusing on the neck and upper spine to relieve tension, improve mobility, and reduce pain.</p>
+              <p class="price">$15</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-content">
+              <h3>Abdominal Relief Massage</h3>
+              <p class="description">Enhance comfort and digestion with our abdominal relief machine massage, using gentle, targeted vibrations to ease bloating, reduce tension, and promote relaxation.</p>
+              <p class="price">$15</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-content">
+              <h3>Neck Massage with Heat Pads</h3>
+              <p class="description">Enhance relaxation and relieve tension with our neck massage featuring soothing heating pads, melting away stiffness and promoting deep comfort.</p>
+              <p class="price">$15</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-content">
+              <h3>Steam Eye Mask</h3>
+              <p class="description">Enhancing treatment that gently warms the delicate eye area using a specially designed mask that releases comforting steam. This enhancement helps to relax tired eyes, reduce puffiness, and promote better circulation, leaving you feeling refreshed and revitalized.</p>
+              <p class="price">$15</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-content">
+              <h3>Cupping</h3>
+              <p class="description">Cupping is a therapeutic technique that uses gentle suction to enhance blood flow and relieve muscle tension. This treatment helps promote relaxation and detoxification, making it an excellent enhancement to your massage or body therapy session.</p>
+              <p class="price">$15</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-content">
+              <h3>Gua Sha</h3>
+              <p class="description">Gua sha is a traditional technique that uses smooth, flat tools to gently scrape the skin, enhancing circulation and encouraging lymphatic drainage. This treatment helps reduce tension and promotes a glowing, refreshed complexion, making it a revitalizing enhancement to any facial or body session.</p>
+              <p class="price">$15</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-content">
+              <h3>Facial Rejuvination</h3>
+              <p class="description">Facial Rejuvenation is a specialized treatment designed to enhance skin vitality by promoting collagen production and improving circulation. This service helps reduce signs of aging and restores a radiant, youthful glow, making it a refreshing enhancement to your massage.</p>
+              <p class="price">$15</p>
+            </div>
+          </div>
       </section>
 
       <!-- Membership Options -->
@@ -439,15 +426,25 @@
           <div class="card">
             <div class="card-content">
               <h3>Silver Membership</h3>
-              <p class="description">Includes one 60-min session per month.</p>
-              <p class="price">Price: $60/month</p>
+              <ul>
+                <li>One 60 minute session per month.</li>
+                <li>One complimentary enhancement per month.</li>
+                <li>One complimentary hot stone enhancement per month.</li>
+                <li>10% discount on all additional services.</li>
+              </ul>
+              <p class="price">$72/month</p>
             </div>
           </div>
           <div class="card">
             <div class="card-content">
               <h3>Gold Membership</h3>
-              <p class="description">Includes one 90-min session per month.</p>
-              <p class="price">Price: $90/month</p>
+              <ul>
+                <li> One 90 minute session per month.</li>
+                <li> Two complimentary enhancements per month.</li>
+                <li> One complimentary hot stone enhancement per month.</li>
+                <li> 10% discount on all additional services.</li>
+              </ul>
+              <p class="price">$102/month</p>
             </div>
           </div>
         </div>
