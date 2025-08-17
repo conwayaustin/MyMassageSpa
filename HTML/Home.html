@@ -234,6 +234,13 @@
           <p>Sunday: 9:00 AM - 6:00 PM</p>
         </div>
       </section>
+
+      <div id="promoModal" class="modal">
+        <div class="modal-content">
+            <img src="../Images/Abdominal.png" alt="Special Offer" style="max-width:100%; border-radius:12px;"/>
+            <button class="modal-close">Close</button>
+        </div>
+      </div>
       
 
       <!-- Contact -->
@@ -250,4 +257,25 @@
         </div>
       </section>
     </div>
+    <script>
+        // Show modal on page load
+        window.addEventListener("load", function () {
+          document.getElementById("promoModal").style.display = "flex";
+        });
+    
+        // Close modal on button click
+        document.querySelector(".modal-close").addEventListener("click", function () {
+          document.getElementById("promoModal").style.display = "none";
+        });
+    
+        // Close modal if user clicks outside content
+        window.addEventListener("click", function (e) {
+          const modal = document.getElementById("promoModal");
+          if (e.target === modal) {
+            modal.style.display = "none";
+          }
+        });
+      </script>
   </section>
+  </body>
+  </html>
