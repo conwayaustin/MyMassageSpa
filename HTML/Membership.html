@@ -42,13 +42,17 @@
       color: #597e58;
     }
     .logo-img { height: 60px; margin-right: 10px; }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.5rem;
+    }
     nav a {
-      margin-left: 1.5rem;
       text-decoration: none;
       color: #4a4a4a;
     }
     .book-btn {
-      margin-left: 1.5rem;
       padding: 0.6rem 1.2rem;
       background-color: #597e58;
       color: white;
@@ -58,20 +62,46 @@
       font-weight: 600;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
       transition: background 0.3s, transform 0.2s;
+      white-space: nowrap;
     }
     .book-btn:hover { background-color: #476d47; transform: scale(1.03); }
+    @media (max-width: 700px) {
+      nav {
+        gap: 0.5rem;
+      }
+      .book-btn {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.95rem;
+        margin-top: 0.5rem;
+      }
+    }
+    @media (max-width: 500px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-end;
+      }
+      .book-btn {
+        width: 100%;
+        margin-top: 0.5rem;
+      }
+    }
 
     /* Hero Section */
     .hero {
       position: relative;
       height: 100vh;
       width: 100%;
-      background: url("../Images/Hero.png") no-repeat center center/cover fixed;
-      display: flex;
+      background: url("../Images/Hero3.png") no-repeat bottom center;
+      background-size: cover;
+      background-position: bottom center;
+      background-attachment: fixed;
+      display: auto;
       justify-content: center;
       align-items: center;
       color: white;
       text-align: center;
+      /* Move image down by 100px */
+      background-position-y: calc(80% + 100px);
     }
     .hero-content {
       position: fixed;
@@ -83,6 +113,10 @@
       align-items: center;
       justify-content: flex-start;
       overflow-y: auto;
+      scrollbar-width:none;
+    }
+    .hero-content::-webkit-scrollbar {
+      display:none;
     }
     .hero-caption {
         font-family: 'Playfair Display', serif;
@@ -188,16 +222,34 @@
         <div class="services-container">
           <div class="service-card">
             <h3>Silver</h3>
-            <p>We offer a range of massage therapies to suit your needs — from relaxation to deep tissue and more.</p>
+            <ul>
+              <li>Includes one 60 min Relaxing Massage per month.</li>
+              <li>Includes one complimentary Enhancement per month.</li>
+              <li>10% off on all additional services and retail purchases.</li>
+            </ul>
+            <h3>$72/month</h3>
           </div>
           <div class="service-card">
             <h3>Gold</h3>
-            <p>Our beauty services include facials, skin treatments, and rejuvenating care tailored to your skin type and goals.</p>
+            <ul>
+              <li>Includes one 90 min Relaxing Massage per month.</li>
+              <li>Includes two complimentary Enhancements per month.</li>
+              <li>10% off on all additional services and retail purchases.</li>
+            </ul>
+            <h3>$112/month</h3>
           </div>
         </div>
+      <section id="contact">
+        <h2>Membership Policy</h2>
+        <div class="contact-info">
+          <p>Membership is charged monthly and auto-renews each month.</p>
+          <p>Credits roll-over and can be shared with family or friends.</p>
+          <p>Membership can be frozen at any time.</p>
+          <p>All subsequent services are charged at member rate if available or will be 10% off.</p>
+          <p>Memberships can be cancelled at any time.</p>
+        </div>
       </section>
-
-      </div>
       </section>
-      </body>
-      </html>
+    </div>
+</body>
+</html>

@@ -41,13 +41,17 @@
       color: #597e58;
     }
     .logo-img { height: 60px; margin-right: 10px; }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.5rem;
+    }
     nav a {
-      margin-left: 1.5rem;
       text-decoration: none;
       color: #4a4a4a;
     }
     .book-btn {
-      margin-left: 1.5rem;
       padding: 0.6rem 1.2rem;
       background-color: #597e58;
       color: white;
@@ -57,8 +61,29 @@
       font-weight: 600;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
       transition: background 0.3s, transform 0.2s;
+      white-space: nowrap;
     }
     .book-btn:hover { background-color: #476d47; transform: scale(1.03); }
+    @media (max-width: 700px) {
+      nav {
+        gap: 0.5rem;
+      }
+      .book-btn {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.95rem;
+        margin-top: 0.5rem;
+      }
+    }
+    @media (max-width: 500px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-end;
+      }
+      .book-btn {
+        width: 100%;
+        margin-top: 0.5rem;
+      }
+    }
 
     /* Hero */
     .hero {
@@ -116,11 +141,10 @@
 
     /* Scrollbar for overflow if needed */
     .hero-content::-webkit-scrollbar {
-      width: 8px;
+      scrollbar-width: none;
     }
     .hero-content::-webkit-scrollbar-thumb {
-      background-color: #597e58;
-      border-radius: 10px;
+      scrollbar-width:none;
     }
     .hero-content::-webkit-scrollbar-track {
       background: #f0f0f0;
