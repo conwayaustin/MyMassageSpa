@@ -408,9 +408,11 @@
       </section>
 
       <!-- Couples Services -->
-      <section class="slider-section" aria-label="Couples Services">
+      <section class="slider-section">
         <h2>Couples Services</h2>
-        <div class="slider centered-slider" aria-label="Massage services slider">
+        <div class="slider-container">
+          <button class="arrow left" onclick="scrollSlider(this, -1)">&#10094;</button>
+          <div class="slider" aria-label="Enhancements slider">
           <div class="card">
             <div class="toggle-buttons" role="group" aria-label="Select session length">
               <button class="toggle-btn active" data-length="30" aria-pressed="true" onclick="selectSessionLength(this)">30</button>
@@ -450,6 +452,57 @@
               <p class="price" data-30="$140" data-60="Non-Member $170  Member $150" data-90="Non-Member $250  Member $230" data-120="Non-Member $340  Member $320">$140</p>
             </div>
           </div>
+          <div class="card">
+            <div class="toggle-buttons" role="group" aria-label="Select session length">
+              <button class="toggle-btn active" data-length="30" aria-pressed="true" onclick="selectSessionLength(this)">30</button>
+              <button class="toggle-btn" data-length="60" aria-pressed="false" onclick="selectSessionLength(this)">60</button>
+              <button class="toggle-btn" data-length="90" aria-pressed="false" onclick="selectSessionLength(this)">90</button>
+              <button class="toggle-btn" data-length="120" aria-pressed="false" onclick="selectSessionLength(this)">120</button>
+            </div>
+            <div class="card-content">
+              <h3>Couples Foot Reflexology</h3>
+              <p class="description">Couples Foot Reflexology offers a rejuvenating experience for two, focusing on pressure points in the feet to reduce stress, improve circulation, and restore balance while you relax side by side.</p>
+              <p class="price" data-30="$110" data-60="Non-Member $150  Member $130" data-90="Non-Member $230  Member $210" data-120="Non-Member $300  Member $280">$110</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="toggle-buttons" role="group" aria-label="Select session length">
+              <button class="toggle-btn active" data-length="60" aria-pressed="true" onclick="selectSessionLength(this)">60</button>
+              <button class="toggle-btn" data-length="90" aria-pressed="false" onclick="selectSessionLength(this)">90</button>
+              <button class="toggle-btn" data-length="120" aria-pressed="false" onclick="selectSessionLength(this)">120</button>
+            </div>
+            <div class="card-content">
+              <h3>Couples Relaxing Combo Massage</h3>
+              <p class="description">Couples Relaxing Combo Massage provides full-body relaxation paired with a soothing 30-minute foot massage, allowing you and your partner to unwind together in complete comfort.</p>
+              <p class="price" data-60="Non-Member $150  Member $130" data-90="Non-Member $230  Member $210" data-120="Non-Member $300  Member $280">Non-Member $150  Member $130</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="toggle-buttons" role="group" aria-label="Select session length">
+              <button class="toggle-btn active" data-length="60" aria-pressed="true" onclick="selectSessionLength(this)">60</button>
+              <button class="toggle-btn" data-length="90" aria-pressed="false" onclick="selectSessionLength(this)">90</button>
+              <button class="toggle-btn" data-length="120" aria-pressed="false" onclick="selectSessionLength(this)">120</button>
+            </div>
+            <div class="card-content">
+              <h3>Couples Deep Tissue Combo Massage</h3>
+              <p class="description">Couples Deep Tissue Combo Massage delivers a therapeutic full-body and foot massage designed to ease muscle tension and restore balance, so you and your partner can relax and rejuvenate together.</p>
+              <p class="price" data-60="Non-Member $160  Member $140" data-90="Non-Member $240  Member $220" data-120="Non-Member $320  Member $300">Non-Member $160  Member $140</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="toggle-buttons" role="group" aria-label="Select session length">
+              <button class="toggle-btn active" data-length="60" aria-pressed="true" onclick="selectSessionLength(this)">60</button>
+              <button class="toggle-btn" data-length="90" aria-pressed="false" onclick="selectSessionLength(this)">90</button>
+              <button class="toggle-btn" data-length="120" aria-pressed="false" onclick="selectSessionLength(this)">120</button>
+            </div>
+            <div class="card-content">
+              <h3>Couples Stiffness Combo Massage</h3>
+              <p class="description">Couples Stiffness Combo Massage targets joint and muscle discomfort with focused techniques on both body and feet, allowing you and your partner to release tension and enhance overall relaxation together.</p>
+              <p class="price" data-60="Non-Member $170  Member $150" data-90="Non-Member $250  Member $230" data-120="Non-Member $340  Member $320">Non-Member $170  Member $150</p>
+            </div>
+          </div>
+          </div>
+        <button class="arrow right" onclick="scrollSlider(this, 1)">&#10095;</button>
         </div>
       </section>
 
@@ -497,7 +550,7 @@
         <div class="card-content">
           <h3>Active oil</h3>
           <p class="description">Enhance your massage with our cooling oil, designed to soothe sore muscles, reduce tension, and leave you feeling refreshed and revitalized.</p>
-          <p class="price">$10</p>
+          <p class="price">$5</p>
         </div>
       </div>
 
@@ -514,14 +567,6 @@
           <h3>Hot Stone</h3>
           <p class="description">Enhance your massage with the therapeutic warmth of hot stones, melting away tension and promoting deep muscle relaxation for a truly indulgent experience.</p>
           <p class="price">$10</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-content">
-          <h3>Foot & Legs Massage</h3>
-          <p class="description">Enhance circulation and ease tired muscles with our foot and leg massage, designed to relieve tension and leave you feeling light and refreshed.</p>
-          <p class="price">$15</p>
         </div>
       </div>
 
@@ -588,9 +633,7 @@
           <p class="price">$15</p>
         </div>
       </div>
-
     </div>
-
     <!-- Right arrow -->
     <button class="arrow right" onclick="scrollSlider(this, 1)">&#10095;</button>
   </div>
