@@ -185,7 +185,126 @@
     #hours {
         margin-bottom: 40px;
     }
+    .service-card {
+    max-width: 900px;
+    margin: 1rem auto;
+    padding: 1rem 1.25rem;
+    background: rgba(245, 235, 220, 0.9);
+    border-radius: 14px;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+    color: #2f3a2e;
+  }
+  .service-card .card-title {
+    font-family: 'Playfair Display', serif;
+    color: #597e58;
+    text-align: center;
+    margin-bottom: .5rem;
+  }
 
+  .pricing-table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+  .pricing-table th,
+  .pricing-table td {
+    padding: .9rem .8rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    background: #fffaf7;
+  }
+  .pricing-table thead th {
+    position: sticky;
+    top: 0; /* keeps headers visible if table scrolls */
+    z-index: 1;
+    background: #e9f0e6;
+    color: #334d2e;
+    font-weight: 700;
+  }
+  .pricing-table .service-col,
+  .pricing-table .service-name {
+    text-align: left;
+    white-space: nowrap;
+    background: rgba(255,255,255,0.96);
+  }
+
+  /* Hover & selected column highlight */
+  .pricing-table td:hover,
+  .pricing-table th[data-col]:hover {
+    background: #f1f6ef;
+  }
+  .pricing-table th.is-selected,
+  .pricing-table td.is-selected {
+    background: #dfeade !important;
+    font-weight: 700;
+    color: #2b3b2a;
+  }
+
+  /* Responsive: stack into cards on small screens */
+  @media (max-width: 720px) {
+    .pricing-table thead {
+      display: none;
+    }
+    .pricing-table,
+    .pricing-table tbody,
+    .pricing-table tr,
+    .pricing-table td,
+    .pricing-table th {
+      display: block;
+      width: 100%;
+    }
+    .pricing-table tr {
+      margin: 0 0 .85rem 0;
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .pricing-table .service-name {
+      background: #e9f0e6;
+      padding: .85rem .9rem;
+      font-weight: 700;
+    }
+    .pricing-table td {
+      text-align: right;
+      padding: .6rem .9rem;
+      background: #fff;
+    }
+    .pricing-table td::before {
+      content: attr(data-label);
+      float: left;
+      color: #597e58;
+      font-weight: 600;
+    }
+  }
+  /* Promo Modal */
+  .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center; align-items: center;
+    }
+    .modal-content {
+      position: relative;
+      background: #fffaf7;
+      border-radius: 15px;
+      padding: 2rem;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      animation: fadeIn 0.4s ease;
+    }
+    .modal-content h2 { font-family: 'Playfair Display', serif; color: #597e58; margin-bottom: 1rem; }
+    .modal-content p { margin-bottom: 1.5rem; font-size: 1rem; color: #4a4a4a; }
+    .modal-close {
+      background: #597e58; color: white; border: none;
+      padding: 0.5rem 1rem; border-radius: 10px; cursor: pointer;
+      font-weight: 600;
+    }
+    @keyframes fadeIn { from { opacity:0; transform: translateY(-20px); } to { opacity:1; transform: translateY(0); } }
     footer {
       text-align: center;
       padding: 20px;
@@ -207,49 +326,190 @@
           <a href="../HTML/Membership.html">Membership</a>
           <a href="../HTML/contact.html">Contact</a>
           <a href="../HTML/policy.html">Policy</a>
-          <a href="#" class="book-btn">Book Now</a>
+          <a href="#" class="book-btn" onclick="openModal('bookingModal')">Book Now</a>
         </nav>
       </header>
-
-      <!-- Hero Section -->
+<!-- Hero Section -->
   <section class="hero">
     <div class="hero-content">
       <p class="hero-caption">Take control of your well-being!</p>
       <h1>Become a Member</h1>
 
+      <!-- Service Card (Table-style) -->
+<div class="service-card" aria-label="Massage services pricing table">
+    <h3 class="card-title">Member Rates</h3>
+  
+    <table class="pricing-table">
+      <thead>
+        <tr>
+          <th scope="col" class="service-col">Service</th>
+          <th scope="col" data-col="60">60 min</th>
+          <th scope="col" data-col="90">90 min</th>
+          <th scope="col" data-col="120">120 min</th>
+          <th scope="col" data-col="Couples">Couples</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row" class="service-name">Relaxing Massage</th>
+          <td data-label="60 min">$65</td>
+          <td data-label="90 min">$105</td>
+          <td data-label="120 min">$140</td>
+          <td data-label="Couples">x2</td>
+        </tr>
+        <tr>
+          <th scope="row" class="service-name">Deep Tissue Massage</th>
+          <td data-label="60 min">$70</td>
+          <td data-label="90 min">$110</td>
+          <td data-label="120 min">$150</td>
+          <td data-label="Couples">x2</td>
+        </tr>
+        <tr>
+          <th scope="row" class="service-name">Stiffness Massage</th>
+          <td data-label="60 min">$75</td>
+          <td data-label="90 min">$115</td>
+          <td data-label="120 min">$160</td>
+          <td data-label="Couples">x2</td>
+        </tr>
+        <tr>
+          <th scope="row" class="service-name">Relaxing Combo Massage</th>
+          <td data-label="60 min">$65</td>
+          <td data-label="90 min">$105</td>
+          <td data-label="120 min">$140</td>
+          <td data-label="Couples">x2</td>
+        </tr>
+        <tr>
+            <th scope="row" class="service-name">Deep Tissue Combo Massage</th>
+            <td data-label="60 min">$65</td>
+            <td data-label="90 min">$105</td>
+            <td data-label="120 min">$140</td>
+            <td data-label="Couples">x2</td>
+          </tr>
+          <tr>
+            <th scope="row" class="service-name">Stiffness Combo Massage</th>
+            <td data-label="60 min">$65</td>
+            <td data-label="90 min">$105</td>
+            <td data-label="120 min">$140</td>
+            <td data-label="Couples">x2</td>
+          </tr>
+          <tr>
+            <th scope="row" class="service-name">Foot Reflexology</th>
+            <td data-label="60 min">$65</td>
+            <td data-label="90 min">$105</td>
+            <td data-label="120 min">$140</td>
+            <td data-label="Couples">x2</td>
+          </tr>
+          <tr>
+            <th scope="row" class="service-name">Facial & Massage</th>
+            <td data-label="60 min">$100</td>
+            <td data-label="90 min">$120</td>
+            <td data-label="120 min">$160</td>
+            <td data-label="Couples">x2</td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
       <!-- Services -->
       <section id="services">
-        <div class="services-container">
-          <div class="service-card">
-            <h3>Silver</h3>
-            <ul>
-              <li>Includes one 60 min Relaxing Massage per month.</li>
-              <li>Includes one complimentary Enhancement per month.</li>
-              <li>10% off on all additional services and retail purchases.</li>
-            </ul>
-            <h3>$72/month</h3>
-          </div>
-          <div class="service-card">
-            <h3>Gold</h3>
-            <ul>
-              <li>Includes one 90 min Relaxing Massage per month.</li>
-              <li>Includes two complimentary Enhancements per month.</li>
-              <li>10% off on all additional services and retail purchases.</li>
-            </ul>
-            <h3>$112/month</h3>
-          </div>
-        </div>
       <section id="contact">
         <h2>Membership Policy</h2>
         <div class="contact-info">
-          <p>Membership is charged monthly and auto-renews each month.</p>
-          <p>Credits roll-over and can be shared with family or friends.</p>
-          <p>Membership can be frozen at any time.</p>
-          <p>All subsequent services are charged at member rate if available or will be 10% off.</p>
-          <p>Memberships can be cancelled at any time.</p>
+          <p>Each month, when you pay the regular price for your first service, you automatically become a member for that month at no extra cost. Membership resets monthly, giving you access to discounted rates on all additional services and $3 off on Enhancements during that month.</p>
         </div>
       </section>
       </section>
     </div>
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal('bookingModal')">&times;</span>
+          <h2>Online Booking Coming Soon</h2>
+          <p>Please book with us over the phone:</p>
+          <p><a href="tel:18135570091" class="phone-link">(813) 557-0091</a></p>
+        </div>
+      </div>
 </body>
+<script>
+    // ✅ General modal functions
+  function openModal(id) {
+    document.getElementById(id).style.display = "flex";
+  }
+
+  function closeModal(id) {
+    document.getElementById(id).style.display = "none";
+  }
+
+  // ✅ Keep your existing promo modal auto-open
+  window.addEventListener("load", function () {
+    document.getElementById("promoModal").style.display = "flex";
+  });
+
+  // ✅ Close modal if user clicks outside content
+  window.addEventListener("click", function (e) {
+    const modals = document.querySelectorAll(".modal");
+    modals.forEach(modal => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  });
+    // Click a header to highlight its column
+    (function () {
+      const table = document.querySelector('.pricing-table');
+      if (!table) return;
+  
+      const headers = [...table.querySelectorAll('thead th[data-col]')];
+  
+      function setSelected(colKey) {
+        // clear previous
+        table.querySelectorAll('.is-selected').forEach(el => el.classList.remove('is-selected'));
+  
+        // mark header
+        const head = table.querySelector(`thead th[data-col="${colKey}"]`);
+        if (head) head.classList.add('is-selected');
+  
+        // mark cells in that column
+        const colIndex = headers.findIndex(h => h.dataset.col === colKey) + 1; // +1 because first col is "Service"
+        if (colIndex < 1) return;
+        table.querySelectorAll(`tbody tr`).forEach(row => {
+          const cell = row.querySelectorAll('td')[colIndex - 1];
+          if (cell) cell.classList.add('is-selected');
+        });
+      }
+  
+      headers.forEach(h => {
+        h.tabIndex = 0; // keyboard focusable
+        h.addEventListener('click', () => setSelected(h.dataset.col));
+        h.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            setSelected(h.dataset.col);
+          }
+        });
+      });
+    })();
+    // General modal functions
+  function openModal(id) {
+    document.getElementById(id).style.display = "flex";
+  }
+
+  function closeModal(id) {
+    document.getElementById(id).style.display = "none";
+  }
+
+  // existing promo modal auto-open
+  window.addEventListener("load", function () {
+    document.getElementById("promoModal").style.display = "flex";
+  });
+
+  // user clicks outside content
+  window.addEventListener("click", function (e) {
+    const modals = document.querySelectorAll(".modal");
+    modals.forEach(modal => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  });
+  </script>
 </html>

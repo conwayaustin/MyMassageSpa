@@ -157,6 +157,34 @@
         max-height: 90vh;
       }
     }
+    /* Promo Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center; align-items: center;
+    }
+    .modal-content {
+      position: relative;
+      background: #fffaf7;
+      border-radius: 15px;
+      padding: 2rem;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      animation: fadeIn 0.4s ease;
+    }
+    .modal-content h2 { font-family: 'Playfair Display', serif; color: #597e58; margin-bottom: 1rem; }
+    .modal-content p { margin-bottom: 1.5rem; font-size: 1rem; color: #4a4a4a; }
+    .modal-close {
+      background: #597e58; color: white; border: none;
+      padding: 0.5rem 1rem; border-radius: 10px; cursor: pointer;
+      font-weight: 600;
+    }
+    @keyframes fadeIn { from { opacity:0; transform: translateY(-20px); } to { opacity:1; transform: translateY(0); } }
 
   </style>
 </head>
@@ -172,7 +200,7 @@
       <a href="../HTML/Membership.html">Membership</a>
       <a href="../HTML/contact.html">Contact</a>
       <a href="../HTML/policy.html">Policy</a>
-      <a href="#" class="book-btn">Book Now</a>
+      <a href="#" class="book-btn" onclick="openModal('bookingModal')">Book Now</a>
     </nav>
   </header>
 
@@ -239,6 +267,31 @@
       </p>
     </div>
   </section>
+  <script>
+    // ✅ General modal functions
+    function openModal(id) {
+        document.getElementById(id).style.display = "flex";
+      }
+
+      function closeModal(id) {
+        document.getElementById(id).style.display = "none";
+      }
+
+      // ✅ Keep your existing promo modal auto-open
+      window.addEventListener("load", function () {
+        document.getElementById("promoModal").style.display = "flex";
+      });
+
+      // ✅ Close modal if user clicks outside content
+      window.addEventListener("click", function (e) {
+        const modals = document.querySelectorAll(".modal");
+        modals.forEach(modal => {
+          if (e.target === modal) {
+            modal.style.display = "none";
+          }
+        });
+      });
+  </script>
 </body>
 </html>
  

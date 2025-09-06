@@ -231,7 +231,7 @@
       <a href="../HTML/Membership.html">Membership</a>
       <a href="../HTML/contact.html">Contact</a>
       <a href="../HTML/policy.html">Policy</a>
-      <a href="#" class="book-btn">Book Now</a>
+      <a href="#" class="book-btn" onclick="openModal('bookingModal')">Book Now</a>
     </nav>
   </header>
 
@@ -255,7 +255,7 @@
           </div>
         </div>
       </section>
-
+      <!--Hours Section-->
       <section id="hours">
         <h2>Hours of Operation</h2>
         <div class="contact-info">
@@ -263,15 +263,22 @@
           <p>Sunday: 9:00 AM - 6:00 PM</p>
         </div>
       </section>
-
+      <!--Promo Modal-->
       <div id="promoModal" class="modal">
         <div class="modal-content">
             <img src="../Images/Abdominal.png" alt="Special Offer" style="max-width:100%; border-radius:12px;"/>
-            <button class="modal-close">Close</button>
+            <button class="modal-close" onclick="closeModal('promoModal')">&times;</button>
         </div>
       </div>
-      
-
+     <!-- Booking Modal -->
+      <div id="bookingModal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal('bookingModal')">&times;</span>
+          <h2>Online Booking Coming Soon</h2>
+          <p>Please book with us over the phone:</p>
+          <p><a href="tel:18135570091" class="phone-link">(813) 557-0091</a></p>
+        </div>
+      </div>
       <!-- Contact -->
       <section id="contact">
         <h2>Contact Us</h2>
@@ -286,25 +293,32 @@
         </div>
       </section>
     </div>
+
     <script>
-        // Show modal on page load
-        window.addEventListener("load", function () {
-          document.getElementById("promoModal").style.display = "flex";
-        });
-    
-        // Close modal on button click
-        document.querySelector(".modal-close").addEventListener("click", function () {
-          document.getElementById("promoModal").style.display = "none";
-        });
-    
-        // Close modal if user clicks outside content
-        window.addEventListener("click", function (e) {
-          const modal = document.getElementById("promoModal");
+      // ✅ General modal functions
+      function openModal(id) {
+        document.getElementById(id).style.display = "flex";
+      }
+
+      function closeModal(id) {
+        document.getElementById(id).style.display = "none";
+      }
+
+      // ✅ Keep your existing promo modal auto-open
+      window.addEventListener("load", function () {
+        document.getElementById("promoModal").style.display = "flex";
+      });
+
+      // ✅ Close modal if user clicks outside content
+      window.addEventListener("click", function (e) {
+        const modals = document.querySelectorAll(".modal");
+        modals.forEach(modal => {
           if (e.target === modal) {
             modal.style.display = "none";
           }
         });
-      </script>
+      });
+  </script>
   </section>
   </body>
   </html>
