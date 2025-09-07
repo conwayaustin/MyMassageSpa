@@ -1,9 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Primary Meta Tags -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Massage Spa | Relaxation Redefined</title>
+  <title>Contact Us | My Massage Spa - Seffner, FL</title>
+  <meta name="description" content="Get in touch with My Massage Spa in Seffner, Florida. Call, email, or visit us to book your relaxing massage and wellness treatments.">
+  <meta name="keywords" content="contact, spa Seffner, massage booking, spa phone number, spa email, wellness treatments, massage appointments">
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Contact Us | My Massage Spa - Seffner, FL">
+  <meta property="og:description" content="Get in touch with My Massage Spa in Seffner, Florida. Call, email, or visit us to book your relaxing massage and wellness treatments.">
+  <meta property="og:image" content="https://yourwebsite.com/images/contact-hero.jpg">
+  <meta property="og:url" content="https://yourwebsite.com/contact.html">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contact Us | My Massage Spa - Seffner, FL">
+  <meta name="twitter:description" content="Get in touch with My Massage Spa in Seffner, Florida. Call, email, or visit us to book your relaxing massage and wellness treatments.">
+  <meta name="twitter:image" content="https://yourwebsite.com/images/contact-hero.jpg">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
   <style>
     /* Reset & base */
@@ -88,20 +103,22 @@
 
     /* Hero Section */
     .hero {
-      position: relative;
-      height: 100vh;
-      width: 100%;
+      height: 120vh;
+      z-index:0;
+      background-size:cover;
+      
       background: url("../Images/Hero2.JPG") no-repeat center center/cover fixed;
       display: flex;
       justify-content: center;
       align-items: center;
       color: white;
       text-align: center;
+      margin-top: -80px;
+      padding-top: 80px;
     }
     .hero-content {
-      position: fixed;
+      margin-top: 80px;
       width: 100%;
-      height: 100%;
       padding: 60px;
       display: flex;
       flex-direction: column;
@@ -180,11 +197,29 @@
         margin-bottom: 40px;
     }
 
-    footer {
+  footer {
+      background: rgba(245, 235, 220, 0.85);
+      border-radius: 12px;
+      color: #4a4a4a;
       text-align: center;
-      padding: 20px;
-      background: #597e58;
-      color: white;
+      padding: 20px; /* pushes footer down */
+    }
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 0px;
+    }
+
+    .footer-item {
+      min-width: 200px;
+    }
+
+    .footer-bottom {
+      font-size: 0.5rem;
+      color: color #4a4a4a;
+      color: #4a4a4a;
     }
     /* Promo Modal */
     .modal {
@@ -198,7 +233,7 @@
     }
     .modal-content {
       position: relative;
-      background: #fffaf7;
+      background: rgba(245, 235, 220, 0.85);
       border-radius: 15px;
       padding: 2rem;
       max-width: 400px;
@@ -234,23 +269,6 @@
     <div class="hero-content">
       <p class="hero-caption">We'd love to hear from you!</p>
       <h1>Contact Us</h1>
-      <section id="services">
-        <div style="display: flex; justify-content: center;">
-          <div class="service-card">
-          <h3>Find Us</h3>
-          <p>📍 2316 S Parsons Ave, Seffner, FL</p>
-          <iframe
-            src="https://www.google.com/maps?q=2316+S+Parsons+Ave,+Seffner,+FL&output=embed"
-            width="100%"
-            height="200"
-            style="border:0; border-radius:12px;"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
-        </div>
-        </div>
-      </section>
       <!-- Services -->
       <section id="services">
         <div class="services-container">
@@ -271,19 +289,54 @@
           </div>
         </div>
       </section>
-      <section id="contact-form" style="display: flex; justify-content: center; margin-top: 0.5rem;">
-        <div class="service-card" style="max-width: 400px;">
-          <h3>Send Us a Message</h3>
-          <form action="https://formspree.io/f/meolrgeo" method="POST">
-            <input type="text" name="name" placeholder="Your Name" required style="width: 100%; margin-bottom: 1rem; padding: 0.5rem;">
-            <input type="email" name="email" placeholder="Your Email" required style="width: 100%; margin-bottom: 1rem; padding: 0.5rem;">
-            <textarea name="message" placeholder="Your Message" required style="width: 100%; margin-bottom: 1rem; padding: 0.5rem; height: 100px;"></textarea>
-            <button type="submit" style="background: #597e58; color: white; border: none; border-radius: 8px; padding: 0.7rem 1.5rem; font-weight: bold;">Send</button>
-          </form>
+      
+      <section id="contact-extras">
+        <div class="services-container" style="justify-content: center;">
+          <div class="service-card">
+            <h3>Find Us</h3>
+            <p>📍 2316 S Parsons Ave, Seffner, FL</p>
+            <iframe
+              src="https://www.google.com/maps?q=2316+S+Parsons+Ave,+Seffner,+FL&output=embed"
+              width="100%"
+              height="200"
+              style="border:0; border-radius:12px;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+          <div class="service-card">
+            <h3>Send Us a Message</h3>
+            <form action="https://formspree.io/f/meolrgeo" method="POST">
+              <input type="text" name="name" placeholder="Your Name" required style="width: 100%; margin-bottom: 1rem; padding: 0.5rem;">
+              <input type="email" name="email" placeholder="Your Email" required style="width: 100%; margin-bottom: 1rem; padding: 0.5rem;">
+              <textarea name="message" placeholder="Your Message" required style="width: 100%; margin-bottom: 1rem; padding: 0.5rem; height: 100px;"></textarea>
+              <button type="submit" style="background: #597e58; color: white; border: none; border-radius: 8px; padding: 0.7rem 0.7rem; font-weight: bold;">Send</button>
+            </form>
+          </div>
         </div>
-      </section>
+      </div>
+    </section>
+  </section>
       <!-- Booking Modal -->
-  <div id="bookingModal" class="modal">
+  <footer>
+    <div class="footer-content">
+      <div class="footer-item">
+        <strong>MM</strong>46825
+      </div>
+      <div class="footer-item">
+        <strong>📍 Address:</strong> 2316 S Parsons Ave, Seffner, FL
+      </div>
+      <div class="footer-item">
+        <strong>✉️ Email:</strong> info@mymassagespas.com
+      </div>
+      <div class="footer-item">
+        <strong>📞 Phone:</strong> (813) 557-0091
+      </div>
+    </div>
+    <p class="footer-bottom">&copy; 2025 My Massage Spa. All Rights Reserved.</p>
+  </footer>
+<div id="bookingModal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeModal('bookingModal')"></span>
       <h2>Online Booking Coming Soon</h2>
@@ -291,7 +344,8 @@
       <p><a href="tel:18135570091" class="phone-link">(813) 557-0091</a></p>
     </div>
   </div>
-  <script>
+  </body>
+    <script>
     // ✅ General modal functions
     function openModal(id) {
         document.getElementById(id).style.display = "flex";
@@ -316,5 +370,4 @@
         });
       });
   </script>
-  </body>
 </html>

@@ -3,7 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Policy - My Massage Spa</title>
+  <!-- Primary Meta Tags -->
+  <title>Policies | My Massage Spa - Seffner, FL</title>
+  <meta name="description" content="Review the policies at My Massage Spa in Seffner, Florida. Learn about our appointment, cancellation, and wellness guidelines for a smooth spa experience.">
+  <meta name="keywords" content="spa policies, massage spa rules, cancellation policy, appointment guidelines, wellness guidelines, My Massage Spa Seffner">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Policies | My Massage Spa - Seffner, FL">
+  <meta property="og:description" content="Review the policies at My Massage Spa in Seffner, Florida. Learn about our appointment, cancellation, and wellness guidelines for a smooth spa experience.">
+  <meta property="og:image" content="https://yourwebsite.com/images/policies-hero.jpg">
+  <meta property="og:url" content="https://yourwebsite.com/policy.html">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Policies | My Massage Spa - Seffner, FL">
+  <meta name="twitter:description" content="Review the policies at My Massage Spa in Seffner, Florida. Learn about our appointment, cancellation, and wellness guidelines for a smooth spa experience.">
+  <meta name="twitter:image" content="https://yourwebsite.com/images/policies-hero.jpg">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans&display=swap" rel="stylesheet"/>
   <style>
     /* Reset & base */
@@ -87,31 +103,32 @@
 
     /* Hero */
     .hero {
-      background: url("../Images/Hero.jpeg") no-repeat center center/cover fixed;
-      min-height: 110vh;
-      position: relative;
+      background: url("../Images/Hero.jpeg") center/cover fixed;
       display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 3rem 2rem 5rem;
-      color: #fff;
-      text-shadow: 0 0 10px rgba(0,0,0,0.7);
+      flex-direction: column; /* stack content vertically */
+      align-items: center;    /* center horizontally */
+      justify-content: flex-start; /* start from top */
+      position: relative;
+      height: 120vh;
+      padding-top: 120px; /* space for header */
+      margin-top: -80px;
     }
 
-    /* Removed overlay */
 
     /* Content container */
     .hero-content {
+    
       position: relative;
       z-index: 2;
       max-width: 900px;
       background: rgba(245, 235, 220, 0.85);
       color: #4a4a4a;
       border-radius: 12px;
-      padding: 30px 40px;
+      padding: 30px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.3);
       overflow-y: auto;
       max-height: 85vh;
+      margin-top: 60px;
     }
 
     h1, h2 {
@@ -157,6 +174,30 @@
         max-height: 90vh;
       }
     }
+    footer {
+      background: rgba(245, 235, 220, 0.85);
+      border-radius: 12px;
+      color: #4a4a4a;
+      text-align: center;
+      padding: 20px; /* pushes footer down */
+    }
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 0px;
+    }
+
+    .footer-item {
+      min-width: 200px;
+    }
+
+    .footer-bottom {
+      font-size: 0.5rem;
+      color: color #4a4a4a;
+      color: #4a4a4a;
+    }
     /* Promo Modal */
     .modal {
       display: none;
@@ -169,7 +210,7 @@
     }
     .modal-content {
       position: relative;
-      background: #fffaf7;
+      background: rgba(245, 235, 220, 0.85);
       border-radius: 15px;
       padding: 2rem;
       max-width: 400px;
@@ -276,7 +317,26 @@
       <p><a href="tel:18135570091" class="phone-link">(813) 557-0091</a></p>
     </div>
   </div>
-  <script>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-item">
+        <strong>MM</strong>46825
+      </div>
+      <div class="footer-item">
+        <strong>📍 Address:</strong> 2316 S Parsons Ave, Seffner, FL
+      </div>
+      <div class="footer-item">
+        <strong>✉️ Email:</strong> info@mymassagespas.com
+      </div>
+      <div class="footer-item">
+        <strong>📞 Phone:</strong> (813) 557-0091
+      </div>
+    </div>
+    <p class="footer-bottom">&copy; 2025 My Massage Spa. All Rights Reserved.</p>
+  </footer>
+  
+</body>
+<script>
     // ✅ General modal functions
     function openModal(id) {
         document.getElementById(id).style.display = "flex";
@@ -301,6 +361,5 @@
         });
       });
   </script>
-</body>
 </html>
  
