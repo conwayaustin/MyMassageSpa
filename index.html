@@ -5,319 +5,189 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Massage Spa | Seffner, FL - Your Oasis for Wellness & Beauty</title>
   <meta name="description" content="Relax, rejuvenate, and refresh at My Massage Spa in Seffner, Florida. Offering massages, facials, and holistic wellness treatments for mind and body.">
-  <meta name="keywords" content="massage spa, Seffner spa, wellness, beauty treatments, facials, body massage, relaxation, holistic therapy, massage, massage near me, spa near me, Florida spa, Reflexology">">
+  <meta name="keywords" content="massage spa, Seffner spa, wellness, beauty treatments, facials, body massage, relaxation, holistic therapy, massage, massage near me, spa near me, Florida spa, Reflexology">
 
-  <!-- Open Graph / Facebook CHANGE LATER-->
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="My Massage Spa | Seffner, FL - Your Oasis for Wellness & Beauty">
   <meta property="og:description" content="Relax, rejuvenate, and refresh at My Massage Spa in Seffner, Florida. Offering massages, facials, and holistic wellness treatments for mind and body.">
   <meta property="og:image" content="https://yourwebsite.com/images/hero-image.jpg">
   <meta property="og:url" content="https://yourwebsite.com">
 
-  <!-- Twitter CHANGE LATER-->
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="My Massage Spa | Seffner, FL - Your Oasis for Wellness & Beauty">
   <meta name="twitter:description" content="Relax, rejuvenate, and refresh at My Massage Spa in Seffner, Florida. Offering massages, facials, and holistic wellness treatments for mind and body.">
   <meta name="twitter:image" content="https://yourwebsite.com/images/hero-image.jpg">
+
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
+
   <style>
     /* Reset & base */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    html, body {
-      width: 100%;
-      min-height: 100%;
-      font-family: 'Open Sans', sans-serif;
-      background-color: #fffaf7;
-      color: #4a4a4a;
-      line-height: 1.6;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; min-height: 100%; font-family: 'Open Sans', sans-serif; background-color: #fffaf7; color: #4a4a4a; line-height: 1.6; }
 
     /* Header */
     header {
       background-color: rgba(245, 235, 220, 0.8);
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000; /* always on top */
-      padding: 0.5rem 2rem;
+      top: 0; left: 0; width: 100%;
+      z-index: 1000;
+      padding: 0.5rem 1rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid #eee;
       backdrop-filter: blur(5px);
     }
-    .logo {
-      font-family: 'Playfair Display', serif;
-      display: flex;
-      align-items: center;
-      font-size: 1.8rem;
-      color: #597e58;
-    }
-    .logo-img { height: 60px; margin-right: 10px; }
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 1.5rem;
-    }
-    nav a {
-      text-decoration: none;
-      color: #4a4a4a;
-    }
-    .book-btn {
-      padding: 0.6rem 1.2rem;
-      background-color: #597e58;
-      color: white;
-      border: none;
-      border-radius: 20px;
-      text-decoration: none;
-      font-weight: 600;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      transition: background 0.3s, transform 0.2s;
-      white-space: nowrap;
-    }
+    .logo { font-family: 'Playfair Display', serif; display: flex; align-items: center; font-size: 1.5rem; color: #597e58; }
+    .logo-img { height: 50px; margin-right: 10px; }
+    nav { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; }
+    nav a { text-decoration: none; color: #4a4a4a; font-size: 1rem; }
+    .book-btn { padding: 0.6rem 1rem; background-color: #597e58; color: white; border: none; border-radius: 20px; text-decoration: none; font-weight: 600; box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: background 0.3s, transform 0.2s; white-space: nowrap; }
     .book-btn:hover { background-color: #476d47; transform: scale(1.03); }
+    @media (max-width: 768px) { nav { gap: 0.5rem; flex-wrap: wrap; justify-content: flex-end; } nav a { font-size: 0.9rem; } .book-btn { padding: 0.5rem 0.8rem; font-size: 0.9rem; } }
+    @media (max-width: 500px) { header { flex-direction: column; align-items: flex-start; } nav { flex-direction: column; width: 100%; align-items: flex-start; } nav a, .book-btn { width: 100%; text-align: left; } }
 
-    @media (max-width: 700px) {
-      nav { gap: 0.5rem; }
-      .book-btn { padding: 0.5rem 0.8rem; font-size: 0.95rem; margin-top: 0.5rem; }
+    /* Hero Section as full page background */
+    .hero-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: url('Images/Hero.png') center/cover no-repeat;
+      z-index: 0;
     }
-    @media (max-width: 500px) {
-      nav { flex-direction: column; align-items: flex-end; }
-      .book-btn { width: 100%; margin-top: 0.5rem; }
+    .content-wrapper {
+      position: relative;
+      z-index: 10;
     }
 
-    /* Hero Section */
-.hero {
-  display: flex;
-  flex-direction: column; /* stack content vertically */
-  align-items: center;    /* center horizontally */
-  justify-content: flex-start; /* start from top */
-  position: relative;
-  height: 120vh;
-  background: url('../Images/Hero.png') center/cover no-repeat;
-  padding-top: 120px; /* space for header */
-}
-
-.hero-content {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  z-index: 10; /* ensures content floats above hero image */
-  padding: 60px 20px;
-}
-
-/* Hero Caption */
-.hero-caption {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-size: 1.3rem;
-  background: rgba(245, 235, 220, 0.85);
-  color: #597e58;
-  padding: 1rem 2rem;
-  border-radius: 12px;
-  margin-bottom: 20px;
-  display: inline-block;
-  position: center;
-  top: 20px;
-  z-index: 15; /* above everything in hero-content */
-}
-
-/* Hero Heading */
-.hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 5rem;
-  font-weight: 700;
-  text-shadow: 0 0 12px rgba(0,0,0,0.8);
-  margin-bottom: 40px;
-  color: #fff;
-}
-.hero h2 {
-  font-family: 'Playfair Display', serif; margin-bottom: 1rem; color: white; text-align: center;
-}
-
-/* Services section floats above hero */
-#services {
-/* adjust as needed */
-  position: relative;
-  z-index: 20;
-}
-    .services-container {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .service-card {
-      background: rgba(245, 235, 220, 0.85);
-      border-radius: 12px;
-      padding: 2rem;
-      max-width: 300px;
+    .hero-content {
+      padding-top: 120px;
       text-align: center;
-      transition: transform 0.3s, box-shadow 0.3s;
-      color: #4a4a4a;
     }
+    .hero-caption { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.2rem; background: rgba(245, 235, 220, 0.85); color: #597e58; padding: 0.8rem 1.5rem; border-radius: 12px; margin-bottom: 20px; display: inline-block; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: 4rem; font-weight: 700; text-shadow: 0 0 12px rgba(0,0,0,0.8); margin-bottom: 30px; color: #fff; }
+    .hero h2 { font-family: 'Playfair Display', serif; margin-bottom: 1rem; color: white; }
+    @media (max-width: 768px) { .hero {padding-top: 160px;}}
+    @media (max-width: 480px) {
+  .hero {
+    padding-top: 180px; /* adjust for mobile */
+  }
+}
+    @media (max-width: 768px) { .hero h1 { font-size: 2.5rem; } .hero-caption { font-size: 1rem; } }
+    @media (max-width: 480px) { .hero h1 { font-size: 2rem; } .hero-caption { font-size: 0.9rem; padding: 0.6rem 1rem; } }
+
+    /* Services */
+    #services { padding: 40px 20px; text-align: center;}
+    .services-container { display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; }
+    .service-card { background: rgba(245, 235, 220, 0.85); border-radius: 12px; padding: 2rem; flex: 1 1 280px; max-width: 300px; text-align: center; transition: transform 0.3s, box-shadow 0.3s; }
     .service-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
     .service-card h3 { font-family: 'Playfair Display', serif; margin-bottom: 1rem; color: #597e58; }
 
-    /* Hours Section */
-    #hours {
-      padding: 80px 20px 40px 20px;
-      text-align: center;
-    }
-    .contact-info {
-      background: rgba(245, 235, 220, 0.85);
-      border-radius: 12px;
-      padding: 2rem;
-      max-width: 600px;
-      margin: 0 auto;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      color: #4a4a4a;
-    }
+    /* Hours */
+    #hours { padding: 60px 20px; text-align: center; }
+    .contact-info { background: rgba(245, 235, 220, 0.85); border-radius: 12px; padding: 2rem; max-width: 600px; margin: 0 auto; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
 
     /* Footer */
-    footer {
-      background: rgba(245, 235, 220, 0.85);
-      color: #4a4a4a;
-      text-align: center;
-      padding: 20px;
-      width: 100%;
-      position: relative;
-      bottom: 0;
-    }
-    .footer-content {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      margin-bottom: 0px;
-    }
-    .footer-item { min-width: 200px; }
-    .footer-bottom { font-size: 0.75rem; color: #4a4a4a; }
+    footer { background: rgba(245, 235, 220, 0.85); text-align: center; padding: 20px; }
+    .footer-content { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-bottom: 10px; }
+    .footer-item { min-width: 180px; font-size: 0.9rem; }
+    .footer-bottom { font-size: 0.75rem; }
 
-    /* Promo Modal */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1001;
-      left: 0; top: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.6);
-      justify-content: center; align-items: center;
-    }
-    .modal-content {
-      position: relative;
-      background: rgba(245, 235, 220, 0.85);
-      border-radius: 15px;
-      padding: 2rem;
-      max-width: 400px;
-      text-align: center;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-      animation: fadeIn 0.4s ease;
-    }
+    /* Modal */
+    .modal { display: none; position: fixed; z-index: 1001; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); justify-content: center; align-items: center; }
+    .modal-content { background: rgba(245, 235, 220, 0.95); border-radius: 15px; padding: 2rem; max-width: 400px; text-align: center; box-shadow: 0 6px 20px rgba(0,0,0,0.3); }
     .modal-content h2 { font-family: 'Playfair Display', serif; color: #597e58; margin-bottom: 1rem; }
-    .modal-content p { margin-bottom: 1.5rem; font-size: 1rem; color: #4a4a4a; }
-    .modal-close {
-      background: #597e58; color: white; border: none;
-      padding: 0.5rem 1rem; border-radius: 10px; cursor: pointer;
-      font-weight: 600;
-    }
-    @keyframes fadeIn { from { opacity:0; transform: translateY(-20px); } to { opacity:1; transform: translateY(0); } }
-
+    .modal-close { background: #597e58; color: white; border: none; padding: 0.5rem 1rem; border-radius: 10px; cursor: pointer; }
   </style>
 </head>
 <body>
 
 <header>
   <div class="logo">
-    <img src="../Images/logo_transparent.png" alt="My Massage Spa Logo" class="logo-img">
+    <img src="Images/logo_transparent.png" alt="My Massage Spa Logo" class="logo-img">
     Massage Spa
   </div>
   <nav>
-    <a href="/index.html">Home</a>
-    <a href="/services.html">Services</a>
-    <a href="/Membership.html">Membership</a>
-    <a href="/contact.html">Contact</a>
-    <a href="/policy.html">Policy</a>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="Membership.html">Membership</a>
+    <a href="contact.html">Contact</a>
+    <a href="policy.html">Policy</a>
     <a href="#" class="book-btn" onclick="openModal('bookingModal')">Book Now</a>
   </nav>
 </header>
 
-<section class="hero">
-  <div class="hero-content">
-    <p class="hero-caption">Your oasis for wellness and beauty treatments</p>
-    <h1>Relaxation Redefined</h1>
-  </div>
+<!-- Hero background layer -->
+<div class="hero-bg"></div>
+
+<div class="content-wrapper">
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-caption">Your oasis for wellness and beauty treatments</p>
+      <h1>Relaxation Redefined</h1>
+    </div>
+  </section>
+
   <section id="services">
-  <h2>Our Services</h2>
-  <div class="services-container">
-    <div class="service-card">
-      <h3>Massage Services</h3>
-      <p>We offer a range of massage therapies to suit your needs — from relaxation to deep tissue and more.</p>
+    <h2 style="color: white;">Our Services</h2>
+    <div class="services-container">
+      <div class="service-card">
+        <h3>Massage Services</h3>
+        <p>We offer a range of massage therapies to suit your needs — from relaxation to deep tissue and more.</p>
+      </div>
+      <div class="service-card">
+        <h3>Beauty Services</h3>
+        <p>Our beauty services include facials, skin treatments, and rejuvenating care tailored to your skin type and goals.</p>
+      </div>
     </div>
-    <div class="service-card">
-      <h3>Beauty Services</h3>
-      <p>Our beauty services include facials, skin treatments, and rejuvenating care tailored to your skin type and goals.</p>
-    </div>
-  </div>
+  </section>
+
   <section id="hours">
-  <h2>Hours of Operation</h2>
-  <div class="contact-info">
-    <p>Monday - Saturday: 9:00 AM - 9:00 PM</p>
-    <p>Sunday: 9:00 AM - 6:00 PM</p>
-  </div>
-</section>
-</section>
-</section>
+    <h2 style = "color: white;">Hours of Operation</h2>
+    <div class="contact-info">
+      <p>Monday - Saturday: 9:00 AM - 9:00 PM</p>
+      <p>Sunday: 9:00 AM - 6:00 PM</p>
+    </div>
+  </section>
 
-
-<footer>
-  <div class="footer-content">
-    <div class="footer-item"><strong>MM</strong>46825</div>
-    <div class="footer-item"><strong>📍 Address:</strong> 2316 S Parsons Ave, Seffner, FL</div>
-    <div class="footer-item"><strong>✉️ Email:</strong> info@mymassagespas.com</div>
-    <div class="footer-item"><strong>📞 Phone:</strong> (813) 557-0091</div>
-  </div>
-  <p class="footer-bottom">&copy; 2025 My Massage Spa. All Rights Reserved.</p>
-</footer>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-item"><strong>MM</strong>46825</div>
+      <div class="footer-item"><strong>📍 Address:</strong> 2316 S Parsons Ave, Seffner, FL</div>
+      <div class="footer-item"><strong>✉️ Email:</strong> info@mymassagespas.com</div>
+      <div class="footer-item"><strong>📞 Phone:</strong> (813) 557-0091</div>
+    </div>
+    <p class="footer-bottom">&copy; 2025 My Massage Spa. All Rights Reserved.</p>
+  </footer>
+</div>
 
 <!-- Promo Modal -->
 <div id="promoModal" class="modal">
   <div class="modal-content">
-      <img src="../Images/Abdominal.png" alt="Special Offer" style="max-width:100%; border-radius:12px;"/>
-      <button class="modal-close" onclick="closeModal('promoModal')">&times;</button>
+    <img src="Images/Abdominal.png" alt="Special Offer" style="max-width:100%; border-radius:12px;"/>
+    <button class="modal-close" onclick="closeModal('promoModal')">&times;</button>
   </div>
 </div>
 
 <!-- Booking Modal -->
 <div id="bookingModal" class="modal">
   <div class="modal-content">
-    <span class="close" onclick="closeModal('bookingModal')"></span>
     <h2>Online Booking Coming Soon</h2>
     <p>Please book with us over the phone:</p>
     <p><a href="tel:18135570091" class="phone-link">(813) 557-0091</a></p>
+    <button class="modal-close" onclick="closeModal('bookingModal')">Close</button>
   </div>
 </div>
 
 <script>
   function openModal(id) { document.getElementById(id).style.display = "flex"; }
   function closeModal(id) { document.getElementById(id).style.display = "none"; }
-
-  window.addEventListener("load", function () {
-    document.getElementById("promoModal").style.display = "flex";
-  });
-  window.addEventListener("click", function (e) {
-    const modals = document.querySelectorAll(".modal");
-    modals.forEach(modal => { if (e.target === modal) modal.style.display = "none"; });
-  });
+  window.addEventListener("load", function () { document.getElementById("promoModal").style.display = "flex"; });
+  window.addEventListener("click", function (e) { const modals = document.querySelectorAll(".modal"); modals.forEach(modal => { if (e.target === modal) modal.style.display = "none"; }); });
 </script>
 
 </body>
 </html>
+

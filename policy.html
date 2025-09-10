@@ -38,99 +38,68 @@
 
     /* Header */
     header {
-    background-color: rgba(245, 235, 220, 0.8);
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      padding: 0.5rem 2rem;
+      background-color: rgba(245, 235, 220, 0.8);
+      position: fixed;
+      top: 0; left: 0; width: 100%;
+      z-index: 1000;
+      padding: 0.5rem 1rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid #eee;
       backdrop-filter: blur(5px);
     }
-    .logo {
-      font-family: 'Playfair Display', serif;
-      display: flex;
-      align-items: center;
-      font-size: 1.8rem;
-      color: #597e58;
-    }
-    .logo-img { height: 60px; margin-right: 10px; }
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 1.5rem;
-    }
-    nav a {
-      text-decoration: none;
-      color: #4a4a4a;
-    }
-    .book-btn {
-      padding: 0.6rem 1.2rem;
-      background-color: #597e58;
-      color: white;
-      border: none;
-      border-radius: 20px;
-      text-decoration: none;
-      font-weight: 600;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      transition: background 0.3s, transform 0.2s;
-      white-space: nowrap;
-    }
+    .logo { font-family: 'Playfair Display', serif; display: flex; align-items: center; font-size: 1.5rem; color: #597e58; }
+    .logo-img { height: 50px; margin-right: 10px; }
+    nav { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; }
+    nav a { text-decoration: none; color: #4a4a4a; font-size: 1rem; }
+    .book-btn { padding: 0.6rem 1rem; background-color: #597e58; color: white; border: none; border-radius: 20px; text-decoration: none; font-weight: 600; box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: background 0.3s, transform 0.2s; white-space: nowrap; }
     .book-btn:hover { background-color: #476d47; transform: scale(1.03); }
-    @media (max-width: 700px) {
-      nav {
-        gap: 0.5rem;
-      }
-      .book-btn {
-        padding: 0.5rem 0.8rem;
-        font-size: 0.95rem;
-        margin-top: 0.5rem;
-      }
-    }
-    @media (max-width: 500px) {
-      nav {
-        flex-direction: column;
-        align-items: flex-end;
-      }
-      .book-btn {
-        width: 100%;
-        margin-top: 0.5rem;
-      }
-    }
+    @media (max-width: 768px) { nav { gap: 0.5rem; flex-wrap: wrap; justify-content: flex-end; } nav a { font-size: 0.9rem; } .book-btn { padding: 0.5rem 0.8rem; font-size: 0.9rem; } }
+    @media (max-width: 500px) { header { flex-direction: column; align-items: flex-start; } nav { flex-direction: column; width: 100%; align-items: flex-start; } nav a, .book-btn { width: 100%; text-align: left; } }
 
     /* Hero */
-    .hero {
-      background: url("../Images/Hero.jpeg") center/cover fixed;
-      display: flex;
-      flex-direction: column; /* stack content vertically */
-      align-items: center;    /* center horizontally */
-      justify-content: flex-start; /* start from top */
-      position: relative;
-      height: 120vh;
-      padding-top: 120px; /* space for header */
-      margin-top: -80px;
-    }
+.hero {
+  background: url("Images/Hero.jpeg") center/cover fixed;
+  display: flex;
+  flex-direction: column; /* stack content vertically */
+  align-items: center;    /* center horizontally */
+  justify-content: flex-start; /* start from top */
+  position: relative;
+  height: 120vh;
+  padding-top: 120px; /* space for header on desktop */
+  margin-top: -80px;
+}
 
+/* Content container */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  background: rgba(245, 235, 220, 0.85);
+  color: #4a4a4a;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  overflow-y: auto;
+  max-height: 85vh;
+  margin-top: 60px; /* desktop offset from top */
+}
 
-    /* Content container */
-    .hero-content {
-    
-      position: relative;
-      z-index: 2;
-      max-width: 900px;
-      background: rgba(245, 235, 220, 0.85);
-      color: #4a4a4a;
-      border-radius: 12px;
-      padding: 30px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-      overflow-y: auto;
-      max-height: 85vh;
-      margin-top: 60px;
-    }
-
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 180px;
+    padding-left: 20px;
+    padding-right: 20px; /* extra space for mobile nav/header */
+    padding-bottom: 50px;
+  }
+  .hero-content {
+    margin-top: 200px; /* push content further down on mobile */
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
     h1, h2 {
       text-align: center;
       color: #597e58;
@@ -167,13 +136,6 @@
       background: #f0f0f0;
     }
 
-    @media (max-width: 600px) {
-      .hero-content {
-        padding: 20px;
-        max-width: 100%;
-        max-height: 90vh;
-      }
-    }
     footer {
       background: rgba(245, 235, 220, 0.85);
       border-radius: 12px;
@@ -232,15 +194,15 @@
 <body>
   <header>
     <div class="logo">
-      <img src="../Images/logo_transparent.png" alt="My Massage Spa Logo" class="logo-img" />
+      <img src="Images/logo_transparent.png" alt="My Massage Spa Logo" class="logo-img" />
       Massage Spa
     </div>
     <nav>
-      <a href="/index.html">Home</a>
-      <a href="/services.html">Services</a>
-      <a href="/Membership.html">Membership</a>
-      <a href="/contact.html">Contact</a>
-      <a href="/policy.html">Policy</a>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="Membership.html">Membership</a>
+      <a href="contact.html">Contact</a>
+      <a href="policy.html">Policy</a>
       <a href="#" class="book-btn" onclick="openModal('bookingModal')">Book Now</a>
     </nav>
   </header>
