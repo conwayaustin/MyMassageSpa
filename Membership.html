@@ -140,9 +140,10 @@
       margin-bottom: 40px;
     }
      @media (max-width: 768px) { .hero {padding-top: 160px;}}
-    @media (max-width: 480px) {
+    @media (max-width: 1024px) {
   .hero {
-    padding-top: 240px; /* adjust for mobile */
+    background-attachment: scroll; /* prevent glitch on iOS */
+    background-size: cover;
   }
 }
     @media (max-width: 768px) { .hero h1 { font-size: 2.5rem; } .hero-caption { font-size: 1rem; } }
