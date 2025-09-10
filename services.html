@@ -81,14 +81,24 @@
 
     /* Hero container with background */
     .hero {
-      position: relative;
-      min-height: 100vh;
-      background: url("Images/IMG_E9180.JPG") no-repeat right center/cover fixed;
-      color: white;
-      text-shadow: 0 0 10px rgba(0,0,0,0.7);
-      padding: 120px 20px 40px;
-      overflow-y: auto;
-    }
+  background: url("Images/IMG_E9180.JPG") no-repeat center center / cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+  color: white;
+  text-shadow: 0 0 10px rgba(0,0,0,0.7);
+  padding: 120px 20px 40px;
+  overflow-y: auto;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .hero {
+    background-size: contain;   /* show full image */
+    background-position: top center; /* adjust focus */
+    background-attachment: scroll;  /* avoid iOS glitch */
+  }
+}
+
     .hero-content::-webkit-scrollbar {
       display:none;
     }
@@ -113,6 +123,7 @@
       padding: 0 50px; /* room for arrows */
       box-sizing: border-box;
     }
+    
     @media (max-width: 600px) {
       .slider-container {
         padding: 30px 30px;
