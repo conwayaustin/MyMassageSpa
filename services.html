@@ -72,7 +72,6 @@
       .book-btn {
         padding: 0.5rem 0.8rem;
         font-size: 0.95rem;
-        margin-top: 0.5rem;
       }
     }
     @media (max-width: 500px) {
@@ -196,6 +195,17 @@
       -ms-overflow-style: none;
       scrollbar-width: none;
     }
+    .card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.card-content .book-btn {
+  margin-top: auto; /* Pushes the button to the bottom */
+  align-self: flex-start; /* Keeps alignment neat */
+}
 
     /* Individual cards */
     .slider .card {
@@ -230,46 +240,57 @@
 
     /* Card styles */
     .card {
-      flex: 0 0 280px;
-      background: rgba(245, 235, 220, 0.85);
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      padding: 20px;
-      text-align: left;
-      scroll-snap-align: start;
       display: flex;
-      align-items: center;
+      flex-direction: row;
+      justify-content: space-between; /* keeps content and button spaced */
+      align-items: stretch;
+      height: 100%; /* makes all cards same height if container allows */
       gap: 15px;
-      color: #333;
-      justify-content: center;
+      flex: 1 1 300px; /* allows cards to grow/shrink evenly */
+      min-height: 400px; /* set a universal base height */
+      max-width: 400px; /* optional: keep them from stretching too wide */
+      box-sizing: border-box;
+      padding: 15px;
+    }
+    .card-content {
+      flex-grow: 1; /* lets content expand naturally */
     }
 
-    .toggle-buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      flex-shrink: 0;
-    }
-    .toggle-btn {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: #597e58;
-      border: none;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-      font-size: 18px;
-      user-select: none;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: background-color 0.3s;
-      outline-offset: 2px;
-    }
+
+    
+/* Left column for buttons */
+.toggle-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* evenly space buttons top to bottom */
+  align-items: center;            /* center horizontally within left column */
+  height: 100%;                   /* fill entire card height */
+  padding: 30px 0;
+  gap: 30px;
+}
+
+/* Circular toggle buttons */
+.toggle-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;             /* perfect circle */
+  background: #597e58;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s, transform 0.2s;
+  flex-shrink: 0;                 /* prevent distortion */
+}
     .toggle-btn:hover {
       background: #486947;
     }
+    
     .toggle-btn.active {
       background: #334d2e;
       box-shadow: 0 0 8px #334d2e;
@@ -399,7 +420,7 @@
           <!-- Left arrow -->
           <button class="slider-arrow slider-arrow-left">&#10094;</button>
           <div class="slider" aria-label="Enhancements slider">
-          <div class="card">
+          <div class="card" data-service= "relaxing-massage">
             <div class="toggle-buttons" role="group" aria-label="Select session length">
               <button class="toggle-btn active" data-length="30" aria-pressed="true" onclick="selectSessionLength(this)">30</button>
               <button class="toggle-btn" data-length="60" aria-pressed="false" onclick="selectSessionLength(this)">60</button>
@@ -409,10 +430,15 @@
             <div class="card-content">
               <h3>Relaxing Massage</h3>
               <p class="description">Gentle and relaxing massage to melt away tension.</p>
-              <p class="price" data-30="$55" data-60="Non-Member $75  Member $65" data-90="Non-Member $115  Member $105" data-120="Non-Member $150  Member $140">$55</p>
+              <p class="price" 
+              data-30="$55"  
+              data-60="Non-Member $75  Member $65" 
+              data-90="Non-Member $115  Member $105" 
+              data-120="Non-Member $150  Member $140">$55</p>
+              <a href="#" class="book-btn" target="_blank" rel="noopener noreferrer">Book Now</a>
             </div>
           </div>
-          <div class="card">
+          <div class="card" data-service="deep-tissue">
             <div class="toggle-buttons" role="group" aria-label="Select session length">
               <button class="toggle-btn active" data-length="30" aria-pressed="false" onclick="selectSessionLength(this)">30</button>
               <button class="toggle-btn" data-length="60" aria-pressed="true" onclick="selectSessionLength(this)">60</button>
@@ -423,9 +449,10 @@
               <h3>Deep Tissue Massage</h3>
               <p class="description">Targeted deep pressure to relieve muscle pain for a more theraputic experience.</p>
               <p class="price" data-30="$60" data-60="Non-Member $80  Member $70" data-90="Non-Member $120  Member $110" data-120="Non-Member $160  Member $150">$60</p>
+              <a href="#" class="book-btn" target="_blank" rel="noopener noreferrer">Book Now</a>
             </div>
           </div>
-          <div class="card">
+          <div class="card" data-service="stiffness-massage">
             <div class="toggle-buttons" role="group" aria-label="Select session length">
               <button class="toggle-btn active" data-length="30" aria-pressed="true" onclick="selectSessionLength(this)">30</button>
               <button class="toggle-btn" data-length="60" aria-pressed="false" onclick="selectSessionLength(this)">60</button>
@@ -436,9 +463,10 @@
               <h3>Stiffness Massage</h3>
               <p class="description">Designed to ease joint discomfort and relieve muscle tension, improve mobility, reduce pain, and restore comfort to your body</p>
               <p class="price" data-30="$70" data-60="Non-Member $85  Member $75" data-90="Non-Member $125  Member $115" data-120="Non-Member $170  Member $160">$70</p>
+              <a href="#" class="book-btn" target="_blank" rel="noopener noreferrer">Book Now</a>
             </div>
             </div>
-            <div class="card">
+            <div class="card" data-service="foot-reflexology">
             <div class="toggle-buttons" role="group" aria-label="Select session length">
               <button class="toggle-btn active" data-length="30" aria-pressed="true" onclick="selectSessionLength(this)">30</button>
               <button class="toggle-btn" data-length="60" aria-pressed="false" onclick="selectSessionLength(this)">60</button>
@@ -449,9 +477,10 @@
               <h3>Foot Reflexology</h3>
               <p class="description">Foot Reflexology uses targeted pressure points on the feet to enhance relaxation, improve circulation, and promote overall balance throughout the body.</p>
               <p class="price" data-30="$55" data-60="Non-Member $75  Member $65" data-90="Non-Member $115  Member $105" data-120="Non-Member $150  Member $140">$55</p>
+              <a href="#" class="book-btn" target="_blank" rel="noopener noreferrer">Book Now</a>
             </div>
           </div>
-            <div class="card">
+            <div class="card" data-service="combo-relaxing">
               <div class="toggle-buttons" role="group" aria-label="Select session length">
                 <button class="toggle-btn active" data-length="60" aria-pressed="true" onclick="selectSessionLength(this)">60</button>
                 <button class="toggle-btn" data-length="90" aria-pressed="false" onclick="selectSessionLength(this)">90</button>
@@ -461,9 +490,10 @@
                 <h3>Combo Relaxing Massage</h3>
                 <p class="description">Our Relaxing Massage with a 30-minute foot massage combines full-body relaxation with focused foot therapy to enhance circulation, ease tension, and leave you feeling completely rejuvenated.</p>
                 <p class="price" data-60="Non-Member $75  Member $65" data-90="Non-Member $115  Member $105" data-120="Non-Member $150  Member $140">Non-Member $75  Member $65</p>
+                <a href="#" class="book-btn" target="_blank" rel="noopener noreferrer">Book Now</a>
               </div>
             </div>
-            <div class="card">
+            <div class="card" data-service="combo-deep">
               <div class="toggle-buttons" role="group" aria-label="Select session length">
                 <button class="toggle-btn active" data-length="60" aria-pressed="true" onclick="selectSessionLength(this)">60</button>
                 <button class="toggle-btn" data-length="90" aria-pressed="false" onclick="selectSessionLength(this)">90</button>
@@ -473,9 +503,10 @@
                 <h3>Combo Deep Tissue Massage</h3>
                 <p class="description">Our Combination Deep Tissue Massage includes a full-body treatment paired with a 30-minute focused foot massage to relieve chronic muscle tension, enhance flexibility, and promote deep relaxation.</p>
                 <p class="price" data-60="Non-Member $80  Member $70" data-90="Non-Member $120  Member $110" data-120="Non-Member $160  Member $150">Non-Member $80  Member $70</p>
+                <a href="#" class="book-btn" target="_blank" rel="noopener noreferrer">Book Now</a>
               </div>
             </div>
-            <div class="card">
+            <div class="card" data-service="combo-stiffness">
               <div class="toggle-buttons" role="group" aria-label="Select session length">
                 <button class="toggle-btn active" data-length="60" aria-pressed="true" onclick="selectSessionLength(this)">60</button>
                 <button class="toggle-btn" data-length="90" aria-pressed="false" onclick="selectSessionLength(this)">90</button>
@@ -485,6 +516,7 @@
                 <h3>Combo Stiffness Massage</h3>
                 <p class="description">Our Combination Stiffness Massage includes a full-body treatment paired with a 30-minute focused foot massage to target joint and muscle pain, enhance circulation, and restore mobility.</p>
                 <p class="price" data-60="Non-Member $85  Member $75" data-90="Non-Member $125  Member $115" data-120="Non-Member $170  Member $160">Non-Member $85  Member $75</p>
+                <a href="#" class="book-btn" target="_blank" rel="noopener noreferrer">Book Now</a>
               </div>
             </div>
           </div>
@@ -499,7 +531,7 @@
         <div class="slider-container">
          <button class="slider-arrow slider-arrow-left">&#10094;</button>
           <div class="slider" aria-label="Enhancements slider">
-          <div class="card">
+          <div class="card" data-service="couples-relaxing">
             <div class="toggle-buttons" role="group" aria-label="Select session length">
               <button class="toggle-btn active" data-length="30" aria-pressed="true" onclick="selectSessionLength(this)">30</button>
               <button class="toggle-btn" data-length="60" aria-pressed="false" onclick="selectSessionLength(this)">60</button>
@@ -510,6 +542,7 @@
               <h3>Couples Relaxing Massage</h3>
               <p class="description">Gentle and relaxing massage to melt away tension with your special somebody.</p>
               <p class="price" data-30="$110" data-60="Non-Member $150  Member $130" data-90="Non-Member $230  Member $210" data-120="Non-Member $300  Member $280">$110</p>
+              <a href="#" class="book-btn" target="_blank" rel="noopener noreferrer">Book Now</a>
             </div>
           </div>
           <!--- Couples Facial Services --->
@@ -521,11 +554,12 @@
               <h3>Couples Relaxing Facial</h3>
               <p class="description">Couples Relaxing Facial offers a soothing skincare experience for two, designed to enhance hydration, restore radiance, and leave both partners feeling refreshed and pampered together.</p>
               <p class="price" data-30="$110">$110</p>
+              <a href="https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833771" class="book-btn" target="_blank" rel="noopener noreferrer">Book Now</a>
             </div>
           </div>
-          <div class="card">
+          <div class="card" data-service="couples-relaxing-facial-massage">
             <div class="toggle-buttons" role="group" aria-label="Select session length">
-              <button class="toggle-btn" data-length="60" aria-pressed="false" onclick="selectSessionLength(this)">60</button>
+              <button class="toggle-btn active" data-length="60" aria-pressed="true" onclick="selectSessionLength(this)">60</button>
               <button class="toggle-btn" data-length="90" aria-pressed="false" onclick="selectSessionLength(this)">90</button>
               <button class="toggle-btn" data-length="120" aria-pressed="false" onclick="selectSessionLength(this)">120</button>
             </div>
@@ -533,12 +567,13 @@
               <h3>Couples Relaxing Facial & Massage</h3>
               <p class="description">Gentle and relaxing massage to melt away tension with your special somebody.</p>
               <p class="price" data-60="Non-Member $220  Member $200" data-90="Non-Member $260  Member $240" data-120="Non-Member $340  Member $320">$220</p>
+              <a href="#" class="book-btn" target="_blank" rel="noopener noreferrer">Book Now</a>
             </div>
           </div>
-          <div class="card">
+          <div class="card" data-service="couples-deep">
             <div class="toggle-buttons" role="group" aria-label="Select session length">
-              <button class="toggle-btn active" data-length="30" aria-pressed="false" onclick="selectSessionLength(this)">30</button>
-              <button class="toggle-btn" data-length="60" aria-pressed="true" onclick="selectSessionLength(this)">60</button>
+              <button class="toggle-btn active" data-length="30" aria-pressed="true" onclick="selectSessionLength(this)">30</button>
+              <button class="toggle-btn" data-length="60" aria-pressed="false" onclick="selectSessionLength(this)">60</button>
               <button class="toggle-btn" data-length="90" aria-pressed="false" onclick="selectSessionLength(this)">90</button>
               <button class="toggle-btn" data-length="120" aria-pressed="false" onclick="selectSessionLength(this)">120</button>
             </div>
@@ -546,9 +581,10 @@
               <h3>Couples Deep Tissue Massage</h3>
               <p class="description">Targeted deep pressure to relieve muscle pain for a more theraputic experience with your special somebody.</p>
               <p class="price" data-30="$120" data-60="Non-Member $160  Member $140" data-90="Non-Member $240  Member $220" data-120="Non-Member $320  Member $300">$120</p>
+              <a href="#" class="book-btn" target="_blank" rel="noopener noreferrer">Book Now</a>
             </div>
           </div>
-          <div class="card">
+          <div class="card" data-service="couples-stiffness">
             <div class="toggle-buttons" role="group" aria-label="Select session length">
               <button class="toggle-btn active" data-length="30" aria-pressed="true" onclick="selectSessionLength(this)">30</button>
               <button class="toggle-btn" data-length="60" aria-pressed="false" onclick="selectSessionLength(this)">60</button>
@@ -559,9 +595,10 @@
               <h3>Couples Stiffness Massage</h3>
               <p class="description">Designed to ease joint discomfort and relieve muscle tension, improve mobility, reduce pain, and restore comfort to your body with your special somebody.</p>
               <p class="price" data-30="$140" data-60="Non-Member $170  Member $150" data-90="Non-Member $250  Member $230" data-120="Non-Member $340  Member $320">$140</p>
+              <a href="#" class="book-btn" target="_blank" rel="noopener noreferrer">Book Now</a>
             </div>
           </div>
-          <div class="card">
+          <div class="card" data-service="couples-reflexology">
             <div class="toggle-buttons" role="group" aria-label="Select session length">
               <button class="toggle-btn active" data-length="30" aria-pressed="true" onclick="selectSessionLength(this)">30</button>
               <button class="toggle-btn" data-length="60" aria-pressed="false" onclick="selectSessionLength(this)">60</button>
@@ -572,9 +609,10 @@
               <h3>Couples Foot Reflexology</h3>
               <p class="description">Couples Foot Reflexology offers a rejuvenating experience for two, focusing on pressure points in the feet to reduce stress, improve circulation, and restore balance while you relax side by side.</p>
               <p class="price" data-30="$110" data-60="Non-Member $150  Member $130" data-90="Non-Member $230  Member $210" data-120="Non-Member $300  Member $280">$110</p>
+              <a href="#" class="book-btn" target="_blank" rel="noopener noreferrer">Book Now</a>
             </div>
           </div>
-          <div class="card">
+          <div class="card" data-service="couples-relaxing-combo">
             <div class="toggle-buttons" role="group" aria-label="Select session length">
               <button class="toggle-btn active" data-length="60" aria-pressed="true" onclick="selectSessionLength(this)">60</button>
               <button class="toggle-btn" data-length="90" aria-pressed="false" onclick="selectSessionLength(this)">90</button>
@@ -584,9 +622,10 @@
               <h3>Couples Relaxing Combo Massage</h3>
               <p class="description">Couples Relaxing Combo Massage provides full-body relaxation paired with a soothing 30-minute foot massage, allowing you and your partner to unwind together in complete comfort.</p>
               <p class="price" data-60="Non-Member $150  Member $130" data-90="Non-Member $230  Member $210" data-120="Non-Member $300  Member $280">Non-Member $150  Member $130</p>
+              <a href="#" class="book-btn" target="_blank" rel="noopener noreferrer">Book Now</a>
             </div>
           </div>
-          <div class="card">
+          <div class="card" data-service="couples-deep-combo">
             <div class="toggle-buttons" role="group" aria-label="Select session length">
               <button class="toggle-btn active" data-length="60" aria-pressed="true" onclick="selectSessionLength(this)">60</button>
               <button class="toggle-btn" data-length="90" aria-pressed="false" onclick="selectSessionLength(this)">90</button>
@@ -596,9 +635,10 @@
               <h3>Couples Deep Tissue Combo Massage</h3>
               <p class="description">Couples Deep Tissue Combo Massage delivers a therapeutic full-body and foot massage designed to ease muscle tension and restore balance, so you and your partner can relax and rejuvenate together.</p>
               <p class="price" data-60="Non-Member $160  Member $140" data-90="Non-Member $240  Member $220" data-120="Non-Member $320  Member $300">Non-Member $160  Member $140</p>
+              <a href="#" class="book-btn" target="_blank" rel="noopener noreferrer">Book Now</a>
             </div>
           </div>
-          <div class="card">
+          <div class="card" data-service="couples-stiffness-combo">
             <div class="toggle-buttons" role="group" aria-label="Select session length">
               <button class="toggle-btn active" data-length="60" aria-pressed="true" onclick="selectSessionLength(this)">60</button>
               <button class="toggle-btn" data-length="90" aria-pressed="false" onclick="selectSessionLength(this)">90</button>
@@ -608,6 +648,7 @@
               <h3>Couples Stiffness Combo Massage</h3>
               <p class="description">Couples Stiffness Combo Massage targets joint and muscle discomfort with focused techniques on both body and feet, allowing you and your partner to release tension and enhance overall relaxation together.</p>
               <p class="price" data-60="Non-Member $170  Member $150" data-90="Non-Member $250  Member $230" data-120="Non-Member $340  Member $320">Non-Member $170  Member $150</p>
+              <a href="#" class="book-btn" target="_blank" rel="noopener noreferrer">Book Now</a>
             </div>
           </div>
           </div>
@@ -630,7 +671,7 @@
 
         <!-- Slider -->
         <div class="slider centered-slider">
-          <div class="card">
+          <div class="card" data-service="relaxing-facial">
             <div class="toggle-buttons" role="group" aria-label="Select session length">
               <button class="toggle-btn active" data-length="30" aria-pressed="true" onclick="selectSessionLength(this)">30</button>
             </div>
@@ -638,10 +679,11 @@
               <h3>Relaxing Facial</h3>
               <p class="description">Our revitalizing facial gently cleanses, exfoliates, and hydrates the skin, leaving your complexion refreshed, radiant, and perfectly balanced.</p>
               <p class="price" data-30="$55">$55</p>
+              <a href="#" class="book-btn" target="_blank" rel="noopener noreferrer">Book Now</a>
             </div>
           </div>
 
-          <div class="card">
+          <div class="card" data-service="relaxing-facial-massage">
             <div class="toggle-buttons" role="group" aria-label="Select session length">
               <button class="toggle-btn active" data-length="60" aria-pressed="true" onclick="selectSessionLength(this)">60</button>
               <button class="toggle-btn" data-length="90" aria-pressed="false" onclick="selectSessionLength(this)">90</button>
@@ -651,6 +693,7 @@
               <h3>Relaxing Facial & Massage</h3>
               <p class="description">Our revitalizing facial gently cleanses, exfoliates, and hydrates the skin, leaving your complexion refreshed, radiant, and perfectly balanced.</p>
               <p class="price" data-60="Non-Member: $110   Member: $100" data-90="Non-Member: $130   Member: $120" data-120="Non-Member $170   Member $160">Non-Member: $110   Member: $65</p>
+              <a href="#" class="book-btn" target="_blank" rel="noopener noreferrer">Book Now</a>
             </div>
           </div>
         </div>
@@ -791,22 +834,146 @@
   </div>
 </div>
 </body>
-  <script>
-    function selectSessionLength(button) {
-      const card = button.closest('.card');
-      const priceEl = card.querySelector('.price');
-      const length = button.getAttribute('data-length');
+<script>
+  // Store unique booking links for each service and session length
+  const bookingLinks = {
+    "relaxing-massage": {
+      30: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833717",
+      60: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833718",
+      90: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833719",
+      120: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833720"
+    },
+    "deep-tissue": {
+      30: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833721",
+      60: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833722",
+      90: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833724",
+      120: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833720"
+    },
+    "stiffness-massage": {
+      30: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833730",
+      60: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833734",
+      90: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833736",
+      120: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833739"
+    },
+    "foot-reflexology": {
+      30: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833745",
+      60: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833747",
+      90: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833749",
+      120: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833750",
+    },
+    "combo-relaxing": {
+      60: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833753",
+      90: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833756",
+      120: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833757",
+    },
+    "combo-deep": {
+      60: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833761",
+      90: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833762",
+      120: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833763",
+    },
+    "combo-stiffness": {
+      60: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833764",
+      90: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833765",
+      120: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4834019",
+    },
+    "couples-relaxing": {
+      30: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833767",
+      60: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833768",
+      90: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833769",
+      120: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833770"
+    },
+    "couples-relaxing-facial": {
+      30: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833771"
+    },
+    "couples-relaxing-facial-massage": {
+      60: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833772",
+      90: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833773",
+      120: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833774"
+    },
+    "couples-deep": {
+      30: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833776",
+      60: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833777",
+      90: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833778",
+      120: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833779"
+    },
+    "couples-stiffness": {
+      30: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833781",
+      60: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833782",
+      90: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833784",
+      120: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833785"
+    },
+    "couples-reflexology": {
+      30: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833985",
+      60: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833988",
+      90: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833994",
+      120: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833995"
+    },
+    "couples-relaxing-combo": {
+      60: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4833996",
+      90: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4834000",
+      120: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4834001"
+    },
+    "couples-stiffness-combo": {
+      60: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4834013",
+      90: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4834017",
+      120: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4834019"
+    },
+    "couples-deep-combo": {
+      60: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4834002",
+      90: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4834007",
+      120: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4834010"
+    },
+    "relaxing-facial": {
+      30: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4834023"
+    },
+    "relaxing-facial-massage": {
+      60: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4834024",
+      90: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4834025",
+      120: "https://go.booker.com/location/MyMassageSpaL54722/detail-summary/4834026"
+    },
+    
+  };
 
-      priceEl.textContent = priceEl.getAttribute(`data-${length}`);
+  function selectSessionLength(button) {
+  const card = button.closest('.card');
+  const service = card.dataset.service;
+  const length = button.dataset.length;
+  const buttons = card.querySelectorAll('.toggle-btn');
+  const priceEl = card.querySelector('.price');
+  const bookBtn = card.querySelector('.book-btn');
 
-      const buttons = button.parentElement.querySelectorAll('.toggle-btn');
-      buttons.forEach(btn => {
-        btn.classList.remove('active');
-        btn.setAttribute('aria-pressed', 'false');
-      });
-      button.classList.add('active');
-      button.setAttribute('aria-pressed', 'true');
-    }
+  // Update active button styling
+  buttons.forEach(btn => {
+    btn.classList.remove('active');
+    btn.setAttribute('aria-pressed', 'false');
+  });
+  button.classList.add('active');
+  button.setAttribute('aria-pressed', 'true');
+
+  // Update price text
+  if (priceEl.dataset[length]) {
+    priceEl.textContent = priceEl.dataset[length];
+  }
+
+  // Update booking link
+  if (bookBtn && bookingLinks[service] && bookingLinks[service][length]) {
+    bookBtn.href = bookingLinks[service][length];
+  }
+}
+
+
+  // Initialize default links on load
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".card").forEach(card => {
+      const service = card.dataset.service;
+      const activeBtn = card.querySelector(".toggle-btn.active");
+      const bookBtn = card.querySelector(".book-btn");
+      if (bookBtn && bookingLinks[service] && activeBtn) {
+        const length = activeBtn.dataset.length;
+        bookBtn.href = bookingLinks[service][length];
+      }
+    });
+  });
   document.addEventListener("DOMContentLoaded", () => {
   const sliderContainers = document.querySelectorAll(".slider-container");
 
